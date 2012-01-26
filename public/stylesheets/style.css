@@ -1,0 +1,26 @@
+/* Set up document
+-----------------------------------------------------------------------------*/
+body {
+  font: 62.5%/1.5 Helvetica, Arial, "Lucida Grande", "Lucida Sans", Tahoma, Verdana, sans-serif;
+  text-align: center;
+  background: #000;
+}
+#wrapper {
+  margin: auto;
+  display: inline-block;
+  min-width: 1000px;
+  min-height: 500px;
+  background: #fff;
+  padding: 20px;
+  border-bottom-left-radius: 25px 40px;
+  border-bottom-right-radius: 25px 40px;
+  border-top-left-radius: 25px 40px;
+  border-top-right-radius: 25px 40px;
+  overflow: hidden;
+}
+#wrapper h1 {
+  text-align: center;
+}
+#content {
+  display: inline-block;
+}

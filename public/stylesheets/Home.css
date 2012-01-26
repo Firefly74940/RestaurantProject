@@ -1,0 +1,41 @@
+/* Set up document
+-----------------------------------------------------------------------------*/
+nav {
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+nav ul {
+  padding-left: 0px;
+}
+nav ul li {
+  display: inline;
+}
+nav ul li a {
+  font-size: 20px;
+  text-align: center;
+  padding: 65px;
+  margin: 5px;
+  text-shadow: 1px 1px 2px #4d4d4d;
+  border-bottom-left-radius: 10px 20px;
+  border-bottom-right-radius: 10px 20px;
+  border-top-left-radius: 10px 20px;
+  border-top-right-radius: 10px 20px;
+  border: 1px solid #fff;
+  text-decoration: none;
+  background-image: -o-linear-gradient(top, #a7cfdf 0%, #23538a 100%);
+}
+nav ul li a:link {
+  color: #000;
+}
+nav ul li a:hover {
+  color: #000;
+  text-decoration: underline;
+  border-color: #f00;
+}
+nav ul li a:visited {
+  color: #000;
+}
+nav ul li a:active {
+  color: #000;
+  background-image: -o-linear-gradient(top, #a7cfdf 0%, #23538a 90%);
+}

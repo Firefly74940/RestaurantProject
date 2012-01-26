@@ -1,0 +1,44 @@
+/* Set up document
+-----------------------------------------------------------------------------*/
+
+border-radius()
+  border-radius arguments
+border-bottom-radius()
+  border-bottom-left-radius arguments
+  border-bottom-right-radius arguments
+border-top-radius()
+  border-top-left-radius arguments
+  border-top-right-radius arguments
+
+nav
+	margin-top 150px
+	margin-bottom 150px
+	ul
+		padding-left 0px
+		li
+			display inline
+			a
+				font-size 20px
+				text-align center
+				padding 65px
+				margin 5px
+				text-shadow: 1px 1px 2px lighten(black, 30%)
+				border-bottom-radius 10px 20px
+				border-top-radius 10px  20px
+				border 1px solid #fff
+				text-decoration none
+				background-image -o-linear-gradient(top, rgba(167,207,223,1) 0%,rgba(35,83,138,1) 100%)
+				&:link
+					color black
+					
+				&:hover
+					color black
+					text-decoration underline
+					border-color red
+					
+				&:visited
+					color black
+				
+				&:active
+					color black
+					background-image -o-linear-gradient(top, rgba(167,207,223,1) 0%,rgba(35,83,138,1) 90%)

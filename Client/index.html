@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/> 
+        <title>Game</title>
+        <script type="text/javascript" src="./js/main.js"></script>
+        <script type="text/javascript" src="./js/Vector3.js"></script>
+        <script type="text/javascript" src="./js/Camera.js"></script>
+        <script type="text/javascript" src="./js/Character.js"></script>
+        <script type="text/javascript" src="./js/KeyPressed.js"></script>
+        <script type="text/javascript" src="./js/RequestAnimationFrame.js"></script>
+        <script type="text/javascript" src="./js/map.json"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            function initPage(){
+                var socket = io.connect('http://localhost');
+                var console = document.getElementById("console");
+                socket.on('LoginAccepted', function (data) {
+                    alert("loged as "+ data.playerid);
+                    window.location = "index.html";
+                });
+                socket.on('socketOk', function (data) {
+                    console.innerHTML=console.innerHTML+"Debug:Socket connected <br/>"
+                    socket.emit('askForCurrentPlayer', null);
+                });
+                socket.on('ReplyCurrentPlayer', function (data) {
+                    console.innerHTML=console.innerHTML+"Debug:Loged as "+ data.playerid;
+  
+                });
+  
+            }
+        </script>
+        <style type="text/css">
+            canvas { border: 1px solid black; }
+            #console{overflow: scroll; height: 100px; background-color: burlywood; color: crimson}
+        </style>
+    </head>
+    <body onload="initPage(); Engine.init(); ">
+        <canvas id="gameframe" width="900" height="500"></canvas>
+        <div id="fps"></div>
+        <div id="worker"></div>
+        <div id="info"></div>
+        <div id="console"></div>
+    </body>
+</html>

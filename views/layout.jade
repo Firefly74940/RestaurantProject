@@ -1,0 +1,15 @@
+!!! 5
+html
+	head
+		title= title
+		meta(charset="UTF-8") 
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/' + page + '.css')
+		script(type='text/javascript', src='/javascripts/main.js')
+		script(type='text/javascript', src='/javascripts/' + page + '.js')
+	body
+		header
+		section#wrapper!= body
+			footer 
+				section.css-table
+				section.four-column
