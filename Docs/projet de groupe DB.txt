@@ -1,0 +1,58 @@
+Employé
+	type (manager/cuisinier/serveur)
+	nom
+	prenom
+	restaurant
+	
+restaurant
+	nom
+	[Employé]
+	pays ( week )
+	[menu]
+	[diningRoom]
+	
+pays
+	name
+	img (drapeau)
+
+produit
+	nom
+	prix
+	description
+	type (Boisson / nourriture) 
+	pays
+
+menu
+	nom
+	prix
+	[choix]
+	pays
+	restaurant
+	
+choix
+	[plat]
+	
+diningRoom
+	[zone]
+	name
+	[table]
+
+table
+	numero
+	responsable (Employé)
+	order
+	assistance (bool)
+	
+order
+	[achat]
+	table
+	state [Payed / Unpayed]
+
+achat
+	produit ou menu
+	qqt
+	state [Delivred/Ready / cooking / removed ]
+
+	
+	
+	mongodb://firefly:fireflyDB@staff.mongohq.com:10096/M1Project
