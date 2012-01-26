@@ -13,14 +13,15 @@ restaurant
 	
 pays
 	name
-	img (drapeau)
+	img (drapeau)  (string)
+	[produit]
 
 produit
 	nom
 	prix
 	description
-	type (Boisson / nourriture) 
-	pays
+	type (Boisson alcool / boisson non alcool/ nourriture /divers) 
+	
 
 menu
 	nom
@@ -35,13 +36,19 @@ choix
 diningRoom
 	[zone]
 	name
+	
+zone
+	Lettre ( nom )
 	[table]
+
 
 table
 	numero
-	responsable (Employé)
+	responsable (Employé serveur)
 	order
 	assistance (bool)
+	occupé (bool)
+	
 	
 order
 	[achat]
