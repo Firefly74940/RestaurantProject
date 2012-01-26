@@ -1,0 +1,3963 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.5" />
+<title>Marakana jQuery Mobile Training</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+pre {
+  padding: 0;
+  margin: 0;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #777777;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+tt {
+  font-family: monospace;
+  font-size: inherit;
+  color: navy;
+}
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+.monospaced {
+  font-family: monospace;
+  font-size: inherit;
+  color: navy;
+}
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([2-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName == 'DIV'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName == 'DIV' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+<meta name="author" content="Adirn Guéret" />
+<meta name="description" content="Marakana jQuery Mobile Tutorial" />
+<meta name="keywords" content="Marakana,training,course,JavaScript,jQuery Mobile,fundamentals,introduction">
+</head>
+<body class="book">
+<div id="header">
+<h1>Marakana jQuery Mobile Training</h1>
+<span id="author">Adrien Guéret</span><br />
+<span id="revnumber">version 2.2,</span>
+<span id="revdate">September 2011</span>
+<br /><span id="revremark">Some changes according to first feedbacks</span>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="introduction">Introduction To jQuery Mobile</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>The mobile devices have nowadays a more and more important position to the public.</p></div>
+<div class="paragraph"><p>As web developers, we have to take mobile devices into account by making websites adapted to their small screens and touch interfaces.</p></div>
+<div class="paragraph"><p><strong>jQuery Mobile</strong> is a very powerful framework which will help up in this task.</p></div>
+<div class="paragraph"><p>In this chapter, we are going to discuss why using <strong>jQuery Mobile</strong> will permit us to quickly develop a mobile application.</p></div>
+<div class="paragraph"><p>We are also going to discuss about how to start with this library (discussing about where to get the library, how to be "ready" to use it in your web pages and where to look for useful complementary learning resources)</p></div>
+<div class="sect2">
+<h3 id="_useful_learning_resources">Useful Learning Resources</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Along with this class and courseware, you will find a lot of great learning resources out there:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+The <strong>jQuery Mobile</strong> official site: <a href="http://jquerymobile.com/">http://jquerymobile.com/</a>
+</p>
+</li>
+<li>
+<p>
+<strong>jQuery Mobile</strong> documentation: <a href="http://jquerymobile.com/test/">http://jquerymobile.com/test/</a>
+</p>
+</li>
+<li>
+<p>
+Ressources and FAQ on <strong>jQuery Mobile</strong>: <a href="http://jquerymobiledictionary.pl/">http://jquerymobiledictionary.pl/</a>
+</p>
+</li>
+<li>
+<p>
+The <strong>jQuery Mobile</strong> forum: <a href="http://forum.jquery.com/jquery-mobile/">http://forum.jquery.com/jquery-mobile/</a>
+</p>
+</li>
+<li>
+<p>
+Examples of <strong>jQuery Mobile</strong> applications: <a href="http://www.jqmgallery.com/">http://www.jqmgallery.com/</a>
+</p>
+</li>
+<li>
+<p>
+Hang out on the jQuery Mobile IRC channel <strong>#jquerymobile</strong> on <strong>freenode.net</strong>
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_history_of_jquery_mobile">History Of jQuery Mobile</h3>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+Aug. 11, 2010
+</dt>
+<dd>
+<p>
+<strong>jQuery Mobile</strong> project is announced (<a href="http://jquerymobile.com/blog/2010/08/11/announcing-the-jquery-mobile-project/">http://jquerymobile.com/blog/2010/08/11/announcing-the-jquery-mobile-project/</a>).
+</p>
+</dd>
+<dt class="hdlist1">
+Oct. 16, 2010
+</dt>
+<dd>
+<p>
+First release of alpha version (<a href="http://jquerymobile.com/blog/2010/10/16/jquery-mobile-alpha-1-released/">http://jquerymobile.com/blog/2010/10/16/jquery-mobile-alpha-1-released/</a>).
+</p>
+</dd>
+<dt class="hdlist1">
+Nov. 12, 2010
+</dt>
+<dd>
+<p>
+Second release of alpha version (<a href="http://jquerymobile.com/blog/2010/11/12/jquery-mobile-alpha-2-released/">http://jquerymobile.com/blog/2010/11/12/jquery-mobile-alpha-2-released/</a>).
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+About 200 bugs fixed; Submitting forms now converted into Ajax requests; Significant performance improvements.
+</p>
+</li>
+</ul></div>
+</dd>
+<dt class="hdlist1">
+Feb. 04, 2011
+</dt>
+<dd>
+<p>
+Third release of alpha version (<a href="http://jquerymobile.com/blog/2011/02/04/jquery-mobile-alpha-3-released/">http://jquerymobile.com/blog/2011/02/04/jquery-mobile-alpha-3-released/</a>).
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+new touch events; Significant performance improvements, especially for Ajax requests.
+</p>
+</li>
+</ul></div>
+</dd>
+<dt class="hdlist1">
+Mar. 31, 2011
+</dt>
+<dd>
+<p>
+Fourth release of alpha version (<a href="http://jquerymobile.com/blog/2011/03/31/jquery-mobile-alpha-4-released/">http://jquerymobile.com/blog/2011/03/31/jquery-mobile-alpha-4-released/</a>).
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+Window Phone 7 supported; Lot of bugs fixed and general improvements.
+</p>
+</li>
+</ul></div>
+</dd>
+<dt class="hdlist1">
+Apr. 07, 2011
+</dt>
+<dd>
+<p>
+Alpha <strong>4.1</strong> released (maintenance release) (<a href="http://jquerymobile.com/blog/2011/04/07/jquery-alpha-4-1-maintenance-release/">http://jquerymobile.com/blog/2011/04/07/jquery-alpha-4-1-maintenance-release/</a>).
+</p>
+</dd>
+<dt class="hdlist1">
+Jun. 20, 2011
+</dt>
+<dd>
+<p>
+First release of beta version (<a href="http://jquerymobile.com/blog/2011/06/20/jquery-mobile-beta-1-released/">http://jquerymobile.com/blog/2011/06/20/jquery-mobile-beta-1-released/</a>).
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+Platform support expanded; Significant performance improvements, especially for transitions;
+</p>
+</li>
+</ul></div>
+</dd>
+<dt class="hdlist1">
+Aug. 03, 2011
+</dt>
+<dd>
+<p>
+Second release of beta version (<a href="http://jquerymobile.com/blog/2011/08/03/jquery-mobile-beta-2-released/">http://jquerymobile.com/blog/2011/08/03/jquery-mobile-beta-2-released/</a>).
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+Nokia Series 60 supported; Page structure more flexible; Lot of bugs fixed;
+</p>
+</li>
+</ul></div>
+</dd>
+<dt class="hdlist1">
+Sep. 08, 2011
+</dt>
+<dd>
+<p>
+Third release of beta version (<a href="http://jquerymobile.com/blog/2011/09/08/jquery-mobile-beta-3-released/">http://jquerymobile.com/blog/2011/09/08/jquery-mobile-beta-3-released/</a>).
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+Blackberry 7 supported; pushState for clean URLs; Lot of improvements and bugs fixed;
+</p>
+</li>
+</ul></div>
+</dd>
+</dl></div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">At the time of this writing, the latest version of <strong>jQuery Mobile</strong> is the third beta: this course is focused on this one. Be aware that, as a beta version, <strong>jQuery Mobile</strong>
+is not totally stable. Use it at your own risk for production.</td>
+</tr></table>
+</div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_what_is_jquery_mobile">What Is jQuery Mobile?</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>jQuery Mobile</strong> is a JavaScript library that simplifies the way we build a mobile website by:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+automatically splitting our <strong>HTML</strong> page into severals pages linked between each other;
+</p>
+</li>
+<li>
+<p>
+transforming forms elements into big and nice touch elements;
+</p>
+</li>
+<li>
+<p>
+handling touch events;
+</p>
+</li>
+<li>
+<p>
+supporting a lot of mobile devices;
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<strong>jQuery Mobile</strong> is:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+Free!;
+</p>
+</li>
+<li>
+<p>
+Open-source and available under both MIT and GPL licences;
+</p>
+</li>
+<li>
+<p>
+Only 20Kb;
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">You have to understand that the goal of <strong>jQuery Mobile</strong> is only to adapt a website for mobile devices. It just updates the <strong>HTML</strong> structure and its design, nothing else&#8230; but that&#8217;s a lot!</td>
+</tr></table>
+</div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_download_the_library">Download The Library</h3>
+<div class="paragraph"><p><strong>jQuery Mobile</strong> simply is a <strong>JavaScript</strong> file: including it with a <tt>&lt;script&gt;</tt> tag is sufficient to use it!
+But since this library changes the behavior of the whole page, it also uses a <strong>CSS</strong> file and some images: we have to include them too.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+You can download all what you need from this link: <a href="http://jquerymobile.com/download/">http://jquerymobile.com/download/</a>. You can find three different downloads:
+</p>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+Uncompressed
+</dt>
+<dd>
+<p>
+Uncompressed JavaScript for use in development &#8658; Very useful for debugging.
+</p>
+</dd>
+<dt class="hdlist1">
+Minified
+</dt>
+<dd>
+<p>
+Minified JavaScript (illegible) for use in production, lightweight footprint &#8658; Saves bandwidth for you and speeds up page requests for your users.
+</p>
+</dd>
+<dt class="hdlist1">
+Zip File
+</dt>
+<dd>
+<p>
+This Zip file directly contains all you need to use <strong>jQuery Mobile</strong>. If you want to host the files yourself, it&#8217;s the best solution.
+</p>
+</dd>
+</dl></div>
+</li>
+</ul></div>
+<div class="paragraph"><p>As an alternative to serving <strong>jQuery Mobile</strong> from your own server, you can choose to use the hosted library from jQuery Content Delivery Network (<a href="http://code.jquery.com/">http://code.jquery.com/</a>).
+<span class="underline">This way to include the library is highly recommended</span>. Why?</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+A single address to access - chances are that users already have this library in their cache if they have visited a site using the <strong>jQuery Mobile</strong> library (hosted by CDN) &#8658; Your page loads faster and you spend less on the bandwidth;
+</p>
+</li>
+<li>
+<p>
+You will always use the latest version of <strong>jQuery Mobile</strong> &#8658; You can take advantage of new features!
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The files from CDN can be found here:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="http://code.jquery.com/jquery.min.js">http://code.jquery.com/jquery.min.js</a>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+Latest <strong>jQuery</strong> version: we must include it in order to use <strong>jQuery Mobile</strong>!
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<a href="http://code.jquery.com/mobile/latest/jquery.mobile.min.js">http://code.jquery.com/mobile/latest/jquery.mobile.min.js</a>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+Latest <strong>jQuery Mobile</strong> version.
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<a href="http://code.jquery.com/mobile/latest/jquery.mobile.min.css">http://code.jquery.com/mobile/latest/jquery.mobile.min.css</a>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+Latest <strong>CSS</strong> file using by <strong>jQuery Mobile</strong>.
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+<div class="paragraph"><p>To include the library in your page:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+This tag must be here in order that the application can be adapted to the device.
+</p>
+</li>
+<li>
+<p>
+We include the last version of <strong>jQuery</strong> library: mandatory for using <strong>jQuery Mobile</strong>!
+</p>
+</li>
+<li>
+<p>
+This is where you would write your own code using <strong>jQuery Mobile</strong>. We include it before the library in the case we want to change the configuration.
+</p>
+</li>
+<li>
+<p>
+We include the last version of <strong>jQuery Mobile</strong>.
+</p>
+</li>
+<li>
+<p>
+We don&#8217;t forget to include the <strong>CSS</strong> file using by <strong>jQuery Mobile</strong>.
+</p>
+</li>
+</ol></div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>Some browsers do not handle &#8220;self-closing&#8221; <tt>&lt;script&gt;</tt> tags correctly. For example, some browsers fail to load the script if you use the following syntax:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><tt>&lt;script src="http://code.jquery.com/jquery.min.js" /&gt;</tt></pre>
+</div></div>
+<div class="paragraph"><p>To ensure proper loading of your script, alway use an explicit close tag, like this:</p></div>
+<div class="literalblock">
+<div class="content">
+<pre><tt>&lt;script src="http://code.jquery.com/jquery.min.js"&gt;&lt;/script&gt;</tt></pre>
+</div></div>
+</td>
+</tr></table>
+</div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_labs_correctly_installing_jquery_mobile">Labs: Correctly Installing jQuery Mobile</h3>
+<div class="paragraph"><p>For these labs, start with the file <tt>labs/labs1.htm</tt>: it&#8217;s a basic <strong>HTML5</strong> file.</p></div>
+<div class="paragraph"><p>Update it by correctly including <strong>jQuery Mobile</strong> from CDN.</p></div>
+<div class="paragraph"><p>The solution can be found in <tt>labs/labs1-solution.htm</tt>.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="pages_dialogs">Pages And Dialogs</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Now we know what <strong>jQuery Mobile</strong> is, it&#8217;s time to build our first page!</p></div>
+<div class="paragraph"><p>You will see that it&#8217;s simple and very intuitive: at the end of this chapter, you will
+already be able to create a navigable mobile website!</p></div>
+<div class="sect2">
+<h3 id="_anatomy_of_a_page">Anatomy Of A Page</h3>
+<div class="paragraph"><p>Like we have previously seen, <strong>jQuery Mobile</strong> modifies an <strong>HTML</strong> page in order to have a good display on mobile devices.</p></div>
+<div class="paragraph"><p>So, first of all, we have to write some <strong>HTML</strong>!</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+We have already seen these tags in the previous chapter.
+</p>
+</li>
+</ol></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/firstTestWithjQueryMobile.png" alt="images/firstTestWithjQueryMobile.png" />
+</div>
+<div class="title">Figure 1. jQuery Mobile applies its own style on our page.</div>
+</div>
+<div class="paragraph"><p>As you can see by testing this code, <strong>jQuery Mobile</strong> applies automatically a nice design to our code. But we can improve it!</p></div>
+<div class="paragraph"><p>One of the most important things you have to know with this library is that it uses <strong>HTML5</strong> <tt>data-</tt> attributes. They permit the developer to use his own attributes: <tt>data-foo</tt>, <tt>data-bar</tt>, <tt>data-whathever</tt> etc.</p></div>
+<div class="paragraph"><p><tt>data-</tt> attributes are valid and recommended by W3C specifications. They permit <strong>jQuery Mobile</strong> to use its own attributes, like <tt>data-role</tt>, <tt>data-icon</tt> etc.
+By setting this kind of attributes to a DOM element, <strong>jQuery Mobile</strong> will manage it in a different way. For example, if we want to transform the <tt>&lt;h1&gt;</tt> into the
+title of the page, we can write this:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+We wrap the title with a container having a <tt>data-role="header"</tt> attribute.
+</p>
+</li>
+</ol></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/secondTestWithjQueryMobile.png" alt="images/secondTestWithjQueryMobile.png" />
+</div>
+<div class="title">Figure 2. We have added an header bar!</div>
+</div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">If your page contains a <tt>data-role="header"</tt> element, its header value will replace the content of the <tt>&lt;title&gt;</tt> tag.</td>
+</tr></table>
+</div>
+</div></div>
+<div class="paragraph"><p>We can also specify the attribute <tt>data-role="content"</tt> to the content (a padding will be apply on it)
+of the page and even the <tt>data-role="footer"</tt> attribute if we want to have a footer:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+This <tt>data-role="footer"</tt> attribute will permit the displaying of a footer bar.
+</p>
+</li>
+</ol></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/thirdTestWithjQueryMobile.png" alt="images/thirdTestWithjQueryMobile.png" />
+</div>
+<div class="title">Figure 3. jQuery Mobile provides an easy way to stylize our application.</div>
+</div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">If you want the header or the footer to be fixed at the top/bottom of the screen, simply add the <tt>data-position="fixed"</tt> attribute to them!</td>
+</tr></table>
+</div>
+</div></div>
+<div class="sect3">
+<h4 id="_in_brief">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+<strong>jQuery Mobile</strong> uses <tt>data-</tt> attributes in order to manage the elements.
+</p>
+</li>
+<li>
+<p>
+<tt>data-role="header"</tt> permits to display an header bar.
+</p>
+</li>
+<li>
+<p>
+<tt>data-role="footer"</tt> permits to display a footer bar.
+</p>
+</li>
+<li>
+<p>
+<tt>data-role="content"</tt> permits to display the body of a page.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_navigation_with_links">Navigation With Links</h3>
+<div class="paragraph"><p>Our mobile application has only one page: how to proceed if we want to have several ones?</p></div>
+<div class="paragraph"><p>One again, we have to use the famous <tt>data-</tt> attributes! This time, we&#8217;ll wrap each page with a <tt>&lt;div&gt;</tt> containing the <tt>data-role="page"</tt> attribute:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+This <tt>&lt;div&gt;</tt> will be the first page.
+</p>
+</li>
+<li>
+<p>
+This one will be the second page.
+</p>
+</li>
+</ol></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/pagination.png" alt="images/pagination.png" />
+</div>
+<div class="title">Figure 4. The library automatically manages the pages.</div>
+</div>
+<div class="paragraph"><p>As you can see, only the first <tt>&lt;div data-role="page"&gt;</tt> is displayed: <strong>jQuery Mobile</strong> automatically hide the other ones!</p></div>
+<div class="paragraph"><p>So, how to access to them?</p></div>
+<div class="paragraph"><p>The library uses a navigation by hashes: first of all, we have to set an <tt>id</tt> to our pages. Thanks to that, if we change the hash of the URL
+to an existing <tt>id</tt>, <strong>jQuery Mobile</strong> will display the corresponding page!</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+The target of this link is the second page
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>If you want to display a page as a dialog box, no problem!</p></div>
+<div class="paragraph"><p>Simply add the <tt>data-rel="dialog"</tt> attribute to the corresponding <tt>&lt;a&gt;</tt> tag:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+Thanks to the <tt>data-rel="dialog"</tt> attribute, the second page will be shown as a dialog box.
+</p>
+</li>
+</ol></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/dialog.png" alt="images/dialog.png" />
+</div>
+<div class="title">Figure 5. Displaying a page as a dialog box is very easy!</div>
+</div>
+<div class="sect3">
+<h4 id="_in_brief_2">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+<tt>data-role="page"</tt> permits to create a new <strong>jQuery Mobile</strong> page.
+</p>
+</li>
+<li>
+<p>
+A <strong>jQuery Mobile</strong> page must have an <tt>id</tt> attribute.
+</p>
+</li>
+<li>
+<p>
+Changing the hash of the URL permits to navigate through the application.
+</p>
+</li>
+<li>
+<p>
+Setting the <tt>data-rel="dialog"</tt> attribute on a link permits to display the correpsonding page as a dialog box.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_tt_pagebeforeshow_tt_event">Using <tt>pagebeforeshow</tt> Event</h3>
+<div class="paragraph"><p>This system of pages included in the same <strong>HTML</strong> page creates an unexpected problem: the famous <tt>$(document).ready()</tt> function of <strong>jQuery</strong>
+is executed only one time and after changing page!</p></div>
+<div class="paragraph"><p>For example, if we want to display the number of times the second page has been displayed, we can consider this kind of code:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="listingblock">
+<div class="title"><tt>myScript.js</tt></div>
+<div class="content"></div></div>
+<div class="paragraph"><p>But, of course, it doesn&#8217;t work! When we click on the link, the page is not reloaded so this function is not called!</p></div>
+<div class="paragraph"><p>The solution is to use a <strong>jQuery Mobile</strong> event: <tt>pagebeforeshow</tt>. This event is triggered just before the corresponding page is shown: just what we&#8217;re looking for!</p></div>
+<div class="listingblock">
+<div class="title"><tt>myScript.js</tt></div>
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/usingPageBeforeShow.png" alt="images/usingPageBeforeShow.png" />
+</div>
+<div class="title">Figure 6. Now, it works!</div>
+</div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content"><strong>jQuery Mobile</strong> provides a lot of other events: <tt>pageshow</tt>, <tt>pagehide</tt>, <tt>pagebeforehide</tt> and many others. We&#8217;ll see them later in this course, but you can
+learn more about them by reading <a href="http://jquerymobile.com/test/docs/api/events.html">the official documentation</a>.</td>
+</tr></table>
+</div>
+</div></div>
+<div class="sect3">
+<h4 id="_in_brief_3">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+<strong>jQuery Mobile</strong> provides new events.
+</p>
+</li>
+<li>
+<p>
+<tt>pagebeforeshow</tt> is triggered just before the corresponding page is shown.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_page_transitions">Page Transitions</h3>
+<div class="paragraph"><p>If you have tested the links navigation, you have probably seen that a slide transition is automatically done. You can change the type of transition by
+setting a <tt>data-transition="X"</tt> attribute to the corresponding <tt>&lt;a&gt;</tt> tag, where <em>X</em> is one of these following:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<tt>slide</tt>
+</p>
+</li>
+<li>
+<p>
+<tt>slideup</tt>
+</p>
+</li>
+<li>
+<p>
+<tt>slidedown</tt>
+</p>
+</li>
+<li>
+<p>
+<tt>pop</tt>
+</p>
+</li>
+<li>
+<p>
+<tt>fade</tt>
+</p>
+</li>
+<li>
+<p>
+<tt>flip</tt>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Furthermore, by adding the <tt>data-rel="back"</tt> to the <tt>&lt;a&gt;</tt> tag, the transition will be reversed.</p></div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>The <tt>flip</tt> transition uses some advanced <strong>CSS3</strong> features and it is not supported by all platforms!</p></div>
+</td>
+</tr></table>
+</div>
+</div></div>
+<div class="sect3">
+<h4 id="_in_brief_4">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+<tt>data-transition</tt> attribute provides a lot of transition effects.
+</p>
+</li>
+<li>
+<p>
+<tt>data-transition</tt> has to be set on an <tt>&lt;a&gt;</tt> tag.
+</p>
+</li>
+<li>
+<p>
+We can reverse a transition thanks to <tt>data-rel="back"</tt> attribute.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_hashes_and_history">Hashes And History</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>jQuery Mobile</strong> navigation is based on changes and updates to the hash location.
+</p>
+</li>
+<li>
+<p>
+Whenever the page is changing, the hash is updated, and conversely.
+</p>
+</li>
+<li>
+<p>
+Behind the scenes, the library updates the native <tt>history</tt> object.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Thanks to these features and despite the special management of pages in <strong>jQuery Mobile</strong>, all is transparent
+for the user!</p></div>
+</div>
+<div class="sect2">
+<h3 id="_labs_creating_pages_linked_between_each_other">Labs: Creating Pages Linked Between Each Other</h3>
+<div class="paragraph"><p>For these labs, start with the file <tt>labs/labs2.htm</tt>: it&#8217;s the <strong>HTML5</strong> file we let after the previous chapter.</p></div>
+<div class="paragraph"><p>For now and among all the next labs, we&#8217;ll build a complete application: a repertory. The user will be able to add contacts, display his contacts and phone to them.
+Of course, this kind of application is quite useless for a mobile device, but the main goal of that is to learn how to create a real application, from A to Z !</p></div>
+<div class="paragraph"><p>So, update the file by adding to it two <strong>jQuery Mobile</strong> pages:</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+The first page will be the main page. It will have an header and a footer, both fixed.
+</p>
+</li>
+<li>
+<p>
+The second page will permit the user to add a contact: for now we&#8217;ll only display the text "<em>We can&#8217;t add a contact yet!</em>".
+</p>
+</li>
+<li>
+<p>
+The second page will also have an header, but it doesn&#8217;t need a footer.
+</p>
+</li>
+<li>
+<p>
+The first page will contain a link to the second page. This last will be displayed as a dialog box, after a <tt>slidedown</tt> transition.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>The solution can be found in <tt>labs/labs2-solution.htm</tt>.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="content_formatting">Content Formatting</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>As we have already seen, <strong>jQuery Mobile</strong> stylizes as its way our DOM elements, but we can go further!</p></div>
+<div class="sect2">
+<h3 id="_layout_grids">Layout Grids</h3>
+<div class="paragraph"><p>The library permits us to build our web pages with columns, as if we use grids. To do that we have to create a container, which could be <tt>&lt;div&gt;</tt>, a <tt>&lt;fieldset&gt;</tt>&#8230;
+Any block tags.</p></div>
+<div class="paragraph"><p>For this time, we won&#8217;t apply a <tt>data-</tt> attribute on this container, but a specific <tt>class</tt>: <tt>ui-grid-X</tt>, where <em>X</em> is a letter from <tt>a</tt> to <tt>d</tt>.
+Find below the kind of grid generated according to the chosen class:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>ui-grid-a</strong>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+Grid of two columns
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<strong>ui-grid-b</strong>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+Grid of three columns
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<strong>ui-grid-c</strong>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+Grid of four columns
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<strong>ui-grid-d</strong>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+Grid of five columns
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+<div class="paragraph"><p>But it&#8217;s not finshed!</p></div>
+<div class="paragraph"><p>The contents has to be wrapped with <tt>&lt;div&gt;</tt>: each <tt>&lt;div&gt;</tt> will be transformed into a cell by <strong>jQuery Mobile</strong>. Unfortunately, we alse need to add specific classes to them:
+<tt>ui-block-X</tt>, where <em>X</em> is once again a letter from <strong>a</strong> to <strong>d</strong>.</p></div>
+<div class="paragraph"><p><tt>ui-block-a</tt> represents a cell placed at the far left, where the far right cell has a class depending on the number of columns of the grid.</p></div>
+<div class="paragraph"><p>That&#8217;s said, a grid is build the same way as a <tt>&lt;table&gt;</tt>:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+Grid of three columns.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>This code will produce this display:</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/layoutGrid.png" alt="images/layoutGrid.png" />
+</div>
+<div class="title">Figure 7. jQuery Mobile manages the &lt;div&gt; as a table.</div>
+</div>
+<div class="sect3">
+<h4 id="_in_brief_5">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+We can create a layout grid thanks to the <span class="underline">classes</span> <tt>ui-grid-a</tt>, <tt>ui-grid-b</tt>, <tt>ui-grid-c</tt> or <tt>ui-grid-d</tt>.
+</p>
+</li>
+<li>
+<p>
+Each element in a layout grid must have one of these <span class="underline">classes</span>: <tt>ui-block-a</tt>, <tt>ui-block-b</tt>, <tt>ui-block-c</tt> or <tt>ui-block-d</tt>.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_collapsible_content">Collapsible Content</h3>
+<div class="paragraph"><p>When we build a web page or an application, we often have to hide some contents. In order to display, we regularly use a button on which the user has to click.</p></div>
+<div class="paragraph"><p><strong>jQuery Mobile</strong> provides us an easy way to do this: we simply have to set the <tt>data-role="collapsible"</tt> attribute to the corresponding container!
+The text is hidden by default, but we can add the <tt>data-collapsed="false"</tt> attribute to change this behavior.</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/collapsibleContent.png" alt="images/collapsibleContent.png" />
+</div>
+<div class="title">Figure 8. You can see that the header text is displayed inside the button.</div>
+</div>
+<div class="sect3">
+<h4 id="_in_brief_6">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+<tt>data-role="collapsible"</tt> permits to have collapsible content.
+</p>
+</li>
+<li>
+<p>
+By default, the text is hidden.
+</p>
+</li>
+<li>
+<p>
+<tt>data-collapsed="false"</tt> permits to show this text.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_collapsible_content_as_accordions">Collapsible Content As Accordions</h3>
+<div class="paragraph"><p>We can use another <strong>jQuery Mobile</strong> feature with collapsible contents: if we wrap them into a single container which
+has a <tt>data-role="collapsible-set"</tt> attribute, they will be regroup into one block.</p></div>
+<div class="paragraph"><p>This adds an accordion effect and only one content can be visible in the same time.</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/accordion.png" alt="images/accordion.png" />
+</div>
+<div class="title">Figure 9. data-collapsed="false" attribute permits again to show contents.</div>
+</div>
+<div class="sect3">
+<h4 id="_in_brief_7">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+<tt>data-role="collapsible-set"</tt> on a container permits to display its collapsible
+content as accordion.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_labs_formatting_our_application">Labs: Formatting Our Application</h3>
+<div class="paragraph"><p>For these labs, start with the file <tt>labs/labs3.htm</tt>.</p></div>
+<div class="paragraph"><p>Update the content of the second page in order to have this display:</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/labs3.png" alt="images/labs3.png" />
+</div>
+<div class="title">Figure 10. The wanted result.</div>
+</div>
+<div class="paragraph"><p>The solution can be found in <tt>labs/labs3-solution.htm</tt>.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="toolbars">Toolbars</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>In the second chapter, we have quickly seen headers and footers.</p></div>
+<div class="paragraph"><p>In this chapter, we are going to see that they are part of <em>toolbars</em>.</p></div>
+<div class="paragraph"><p>Toolbars are very important in a mobile application: they can give information
+to the user and they can provide another way to navigate through the application.</p></div>
+<div class="paragraph"><p>Let&#8217;s see them in details!</p></div>
+<div class="sect2">
+<h3 id="_the_positioning_options">The Positioning Options</h3>
+<div class="paragraph"><p>First of all, toolbars can set with different positioning options.</p></div>
+<div class="paragraph"><p>We&#8217;ve already seen the <em>basic</em> position, which needs no attribute except the
+<tt>data-role="header"</tt> or <tt>data-role="footer"</tt>:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+This <tt>&lt;div&gt;</tt> will be the header of the page.
+</p>
+</li>
+<li>
+<p>
+This one will be the footer of the page.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>We&#8217;ve also seen the <tt>fixed</tt> position: I remind you that with the <tt>data-position="fixed"</tt> attribute the corresponding bar if fixed to the top or the bottom of the screen:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+The header will be fixed.
+</p>
+</li>
+<li>
+<p>
+The footer will be fixed as well.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>With a fixed position:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Toolbars can be hidden by tapping the screen.
+</p>
+</li>
+<li>
+<p>
+If the users taps his screen when the toolbars are hidden, they will be shown again.
+</p>
+</li>
+<li>
+<p>
+In fact, toolbars are not really hidden: they are just come back to a basic position.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>It&#8217;s possible to make them really invisible with the <em>fullscreen</em> position mode. To use it, keep the <tt>data-position="fixed"</tt> attributes and simply add
+the <tt>data-fullscreen="true"</tt> attribute to <span class="underline">the page container</span>:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+<tt>data-fullscreen="true"</tt> must be set on the page container!
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>Thanks to that, we have a similar effect than the fixed position mode, but toolbars are totally hidden when the user taps the screen.</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/fullscreen.png" alt="images/fullscreen.png" />
+</div>
+<div class="title">Figure 11. A fullscreen simply is our application without toolbars.</div>
+</div>
+<div class="sect3">
+<h4 id="_in_brief_8">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+We can fix header and footer bars thanks to <tt>data-position="fixed"</tt> attribute.
+</p>
+</li>
+<li>
+<p>
+<tt>data-fullscreen="true"</tt> simulates a fullscreen by hiding the toolbars.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_adding_buttons">Adding Buttons</h3>
+<div class="paragraph"><p>Any links (<tt>&lt;a&gt;</tt> tags) inside the toolbars will be transformed into a nice button. But headerbar and footerbar don&#8217;t have the same behavior:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Headerbar can have only two buttons. The first one will be displayed at the left of the title where the second will be put on its right.
+If you want to have only one button displayed on the right, you have to add to it the <tt>ui-btn-right</tt> class:
+</p>
+<div class="listingblock">
+<div class="content"></div></div>
+</li>
+<li>
+<p>
+Footerbar can have as many buttons as possible, but they will be displayed on a separated line than the title of the footer. If the <tt>&lt;a&gt;</tt> tags are written before
+the <tt>&lt;hX&gt;</tt> tag, buttons will be displayed on the top of this last. Otherwise, they&#8217;ll be displayed on its bottom:
+</p>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/toolbarsButtons.png" alt="images/toolbarsButtons.png" />
+</div>
+<div class="title">Figure 12. Links are displayed as buttons.</div>
+</div>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_in_brief_9">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+`&lt;a&gt;`tags inside toolbars are displayed as buttons.
+</p>
+</li>
+<li>
+<p>
+<tt>ui-btn-right</tt> class permits to display the corresponding button on the right.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_navbars">Navbars</h3>
+<div class="paragraph"><p>Headerbar and footerbar can contain a navbar: basically, it&#8217;s an unordered list of links.</p></div>
+<div class="paragraph"><p>If this list is contained into a <tt>&lt;div&gt;</tt> which has a <tt>data-role="navbar"</tt> attribute, <strong>jQuery Mobile</strong> transforms them into a navbar!</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/navbar.png" alt="images/navbar.png" />
+</div>
+<div class="title">Figure 13. Links are again displayed as buttons.</div>
+</div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">If a list of links contains more than five items, the navbar will be splitted into two columns.</td>
+</tr></table>
+</div>
+</div></div>
+<div class="sect3">
+<h4 id="_in_brief_10">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+<tt>data-role="navbar"</tt> permits to display a menu as a nice navbar.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_persistent_footer_navbars">Persistent Footer Navbars</h3>
+<div class="paragraph"><p>We have seen that <strong>jQuery Mobile</strong> automatically adds transitions between page when the user clicks on links: the whole page
+is transitioned, including the header, the footer and the navbars.</p></div>
+<div class="paragraph"><p><strong>jQuery Mobile</strong> provides us a way to persist footer navbars: in this case, they won&#8217;t be transitioned, giving there is only one navbar.</p></div>
+<div class="paragraph"><p>To do that, we&#8217;ll the <tt>data-id="X"</tt> attribute on each footer we want to linked, where <em>X</em> must be the same value for each footer:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+The <tt>data-id</tt> attribute of the footer of the first page is the same than the one of the second page.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>In the above example, each footer has the <tt>data-id</tt> attribute set to <tt>myPersistentFooter</tt>: <strong>jQuery Mobile</strong> will link them between each other, giving the illusion
+they are only one!</p></div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>To display a button as an active one, add these two classes on it: <tt>ui-btn-active</tt> and <tt>ui-state-persist</tt>:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/activeButton.png" alt="images/activeButton.png" />
+</div>
+<div class="title">Figure 14. The button is displayed as active.</div>
+</div>
+</td>
+</tr></table>
+</div>
+</div></div>
+<div class="sect3">
+<h4 id="_in_brief_11">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Persistent footer navbars are fixed footerbar that are not transitioned.
+</p>
+</li>
+<li>
+<p>
+Each linked footer mut have the same <tt>data-id</tt> attribute.
+</p>
+</li>
+<li>
+<p>
+<tt>ui-btn-active</tt> and <tt>ui-state-persist</tt> classes permit to simulate active buttons.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_labs_a_button_inside_the_header">Labs: A Button Inside The Header</h3>
+<div class="paragraph"><p>For these labs, start with the file <tt>labs/labs4.htm</tt>.</p></div>
+<div class="paragraph"><p>Update the main page in order to remove the link from the contents: then display a button on the right of the header to open the dialog box
+in the same way than the removed link.</p></div>
+<div class="paragraph"><p>The solution can be found in <tt>labs/labs4-solution.htm</tt>.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="buttons">Buttons</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Buttons are one of the most important elements in an application. It&#8217;s espacially true
+when we speak about mobile device application on which they are intuitive and easy to use:
+what could be simpler than tapping on a button and waiting for its action?</p></div>
+<div class="paragraph"><p><strong>jQuery Mobile</strong> creates very beautiful buttons. Let&#8217;s see how to use them!</p></div>
+<div class="sect2">
+<h3 id="_basic_buttons">Basic Buttons</h3>
+<div class="paragraph"><p>You will probably be surprised: we can use <tt>&lt;a&gt;</tt> tags to create buttons with <strong>jQuery Mobile</strong>!</p></div>
+<div class="paragraph"><p>Once again, it&#8217;s thanks to <tt>data-role</tt> attribute: simply add <tt>data-role="button"</tt> to a link and the library
+will transform it into a nice and big button:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/linkButton.png" alt="images/linkButton.png" />
+</div>
+<div class="title">Figure 15. This link is transformed into a button.</div>
+</div>
+<div class="paragraph"><p>In order to standardize the design, <strong>jQuery Mobile</strong> stylizes the "real" buttons in a same way as this kind of link:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/buttons.png" alt="images/buttons.png" />
+</div>
+<div class="title">Figure 16. All buttons are displayed in the same way.</div>
+</div>
+<div class="paragraph"><p>As you can see, the displaying of the buttons in <strong>jQuery Mobile</strong> has a block behavior: they fill the width of the screen and
+there is a line-break after each of them.</p></div>
+<div class="paragraph"><p>We can force them to be styled as inline elements by adding to them the <tt>data-inline="true"</tt> attribute:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/inlineButtons.png" alt="images/inlineButtons.png" />
+</div>
+<div class="title">Figure 17. Buttons are now inline.</div>
+</div>
+<div class="sect3">
+<h4 id="_in_brief_12">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+<tt>data-role="button"</tt> transorms a link into a button.
+</p>
+</li>
+<li>
+<p>
+"Normal" buttons are displayed in the same way as <tt>data-role="button"</tt> buttons.
+</p>
+</li>
+<li>
+<p>
+<tt>data-inline="true"</tt> permits to display buttons as inline elements.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_buttons_icons">Buttons Icons</h3>
+<div class="paragraph"><p>These buttons are beautiful, right, but they&#8217;re a bit insipid&#8230; Fortunately, <strong>jQuery Mobile</strong> permits us to add some icons to them.</p></div>
+<div class="sect3">
+<h4 id="_adding_icons">Adding Icons</h4>
+<div class="paragraph"><p>For that, we just have to add the <tt>data-icon="X"</tt> attribute on the corresponding button, where <em>X</em> is the icon to add:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/iconsButtons.png" alt="images/iconsButtons.png" />
+</div>
+<div class="title">Figure 18. We can use a lot of icons.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_and_what_about_custom_icons">And What About Custom Icons?</h4>
+<div class="paragraph"><p><strong>jQuery Mobile</strong> permits us to use our own icons. To do that, give the value corresponding to your icon to the <tt>data-icon</tt> attribute:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="paragraph"><p><tt>marakana</tt> is not a <strong>jQuery Mobile</strong> value for <tt>data-icon</tt> attribute, so the <tt>plus</tt> icon will be displayed by default. But the library also adds a class to the button:
+<tt>ui-icon-marakana</tt>. In fact, for all X, <tt>data-icon="X"</tt> will generate the class <tt>ui-icon-X</tt>!</p></div>
+<div class="paragraph"><p>Thanks to that, we can use <strong>CSS</strong> in order to specify our own icons! Let&#8217;s try with this one:</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/marakana_icon.png" alt="images/marakana_icon.png" />
+</div>
+<div class="title">Figure 19. The Marakana icon.</div>
+</div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/customIcon.png" alt="images/customIcon.png" />
+</div>
+<div class="title">Figure 20. Thanks to that, we can custom our application as we want!</div>
+</div>
+<div class="paragraph"><p>Of course, we can go further by define other <strong>CSS</strong> properties&#8230;</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/customIconTransparent.png" alt="images/customIconTransparent.png" />
+</div>
+<div class="title">Figure 21. With can do what we want with CSS!</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_placing_the_icons">Placing The Icons</h4>
+<div class="paragraph"><p>The icons are placed to the left of text button by default. We change change this by adding the <tt>data-iconpos="X"</tt> attribute on the button, where <tt>X</tt> is one of these following:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<tt>left</tt>
+</p>
+</li>
+<li>
+<p>
+<tt>right</tt>
+</p>
+</li>
+<li>
+<p>
+<tt>top</tt>
+</p>
+</li>
+<li>
+<p>
+<tt>bottom</tt>
+</p>
+</li>
+<li>
+<p>
+<tt>notext</tt>
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+For this value, only the icon is displayed: the button text is shown as tooltip.
+</p>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/iconsPosButtons.png" alt="images/iconsPosButtons.png" />
+</div>
+<div class="title">Figure 22. Placing the icons is very easy.</div>
+</div>
+</li>
+</ul></div>
+</li>
+</ul></div>
+<div class="paragraph"><p>Furthermore, icons can be set on each buttons of your application, <span class="underline">including toolbars buttons</span>!</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/iconsAllButtons.png" alt="images/iconsAllButtons.png" />
+</div>
+<div class="title">Figure 23. We can build a very nice interface with icons.</div>
+</div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">Unfortunately, at the time of this writing, icons on navbars are always placed to the top of the text and we can&#8217;t move them.</td>
+</tr></table>
+</div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_in_brief_13">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+<tt>data-icon</tt> attribute permits to add icon on our buttons.
+</p>
+</li>
+<li>
+<p>
+We can specify our own buttons thanks to <strong>CSS</strong>, <tt>data-icon="X"</tt> attribute and <tt>ui-icon-X</tt> class.
+</p>
+</li>
+<li>
+<p>
+<tt>data-iconpos</tt> permits to place the icon where we want on the button.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_grouped_buttons">Grouped Buttons</h3>
+<div class="paragraph"><p>If some buttons have a similar goal, it could be great to group them. <strong>jQuery Mobile</strong> permits it, by simply wrapping the corresponding buttons by a
+container having the <tt>data-role="controlgroup"</tt> attribute. Grouped buttons are displayed vertically by default, but we can change this by adding the
+<tt>data-type="horizontal"</tt> to the container:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/groupedButtons.png" alt="images/groupedButtons.png" />
+</div>
+<div class="title">Figure 24. Grouping buttons is a way to design our application.</div>
+</div>
+<div class="sect3">
+<h4 id="_in_brief_14">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+<tt>data-role="controlgroup"</tt> permits to group buttons.
+</p>
+</li>
+<li>
+<p>
+Buttons are vertically grouped by default.
+</p>
+</li>
+<li>
+<p>
+<tt>data-type="horizontal"</tt> permits to horizontally grouped them.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_labs_playing_with_buttons">Labs: Playing With Buttons</h3>
+<div class="paragraph"><p>For these labs, start with the file <tt>labs/labs5.htm</tt>.</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+First of all, modify the header of the main page in order to have an icon displaying only a <em>plus</em> icon.
+</p>
+</li>
+<li>
+<p>
+Then change the contents of the second page to display buttons in this way:
+</p>
+</li>
+</ol></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/labs5.png" alt="images/labs5.png" />
+</div>
+<div class="title">Figure 25. The wanted result.</div>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">you can use the <strong>HTML</strong> special entity <tt>&amp;nbsp;</tt> in order to display a big button without text.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>The solution can be found in <tt>labs/labs5-solution.htm</tt>.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="forms">Form Elements</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Now we&#8217;ve seen the buttons, it&#8217;s time to speak about forms.</p></div>
+<div class="paragraph"><p>As you can guess, forms are often mandatory in an application: they are the link between the user and your code!</p></div>
+<div class="sect2">
+<h3 id="_creating_a_form">Creating A Form</h3>
+<div class="paragraph"><p>Creating a form in <strong>jQuery Mobile</strong> is very simple since a basic <tt>&lt;form&gt;</tt> tag is sufficient!</p></div>
+<div class="paragraph"><p>That&#8217;s said, it&#8217;s recommended to wrap our forms with a container having the <tt>data-role="fieldcontain"</tt> attribute: thanks to that,
+the library will improve the displaying of forms.</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="sect3">
+<h4 id="_in_brief_15">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+<tt>data-role="fieldcontain"</tt> improves the displaying of forms.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_text_inputs">Text Inputs</h3>
+<div class="paragraph"><p><strong>jQuery Mobile</strong> manages form elements in a simply way: you just have to write the basics <strong>HTML</strong> tags and the library transforms them,
+like buttons :</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/inputs.png" alt="images/inputs.png" />
+</div>
+<div class="title">Figure 26. The library transforms input fields.</div>
+</div>
+<div class="paragraph"><p>We can of course add <tt>&lt;label&gt;</tt> tags:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/labels.png" alt="images/labels.png" />
+</div>
+<div class="title">Figure 27. Labels are positioned according to the width of the screen.</div>
+</div>
+<div class="sect3">
+<h4 id="_in_brief_16">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Writting the bascis <strong>HTML</strong> tags of form elements is sufficient to nicely display them.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_others_html5_inputs">Others HTML5 Inputs</h3>
+<div class="paragraph"><p><strong>jQuery Mobile</strong> also manages all the HTML5 new <tt>&lt;input&gt;</tt> types. For each ones, it will generate the same displaying than basic text inputs,
+but it will create a nice slider for the <tt>&lt;input type="range" /&gt;</tt> tag, so that it works on every platforms:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/sliders.png" alt="images/sliders.png" />
+</div>
+<div class="title">Figure 28. Range inputs become sliders.</div>
+</div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">Range inputs work well only if we define the attributes <tt>min</tt>, <tt>max</tt> and <tt>value</tt>.</td>
+</tr></table>
+</div>
+</div></div>
+<div class="sect3">
+<h4 id="_in_brief_17">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+<strong>jQuery Mobile</strong> provides a graceful degradation for <strong>HTML5</strong> inputs.
+</p>
+</li>
+<li>
+<p>
+Range inputs are transformed into nice and convenient sliders.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_checkboxes_and_radio_buttons">Checkboxes And Radio Buttons</h3>
+<div class="paragraph"><p>Sometimes we want the user to make choices: checkboxes and radio buttons are made for that!</p></div>
+<div class="paragraph"><p>This time, it&#8217;s <span class="underline">highly recommended</span> adding a <tt>&lt;label&gt;</tt> tag: its text will be the value of the corresponding generated button!</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/checkboxes.png" alt="images/checkboxes.png" />
+</div>
+<div class="title">Figure 29. Checkboxes are nicely transformed.</div>
+</div>
+<div class="paragraph"><p>Note that we&#8217;ve used a <tt>&lt;fieldset&gt;</tt> tag and its <tt>&lt;legend&gt;</tt> tag in order to explain what we expect the user to do. This structure provides another advantage:
+if we set the <tt>data-role="controlgroup"</tt> on the <tt>&lt;fieldset&gt;</tt>, checkboxes will be grouped together, like we&#8217;ve already seen with buttons.</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/groupedCheckboxes.png" alt="images/groupedCheckboxes.png" />
+</div>
+<div class="title">Figure 30. Grouping checkboxes provides a more intuitive interface.</div>
+</div>
+<div class="paragraph"><p>Like buttons, it&#8217;s also possible to group them horizontally thanks to <tt>data-type="horizontal"</tt> attribute:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+Note these attriubtes!
+</p>
+</li>
+</ol></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/groupedHorizontalCheckboxes.png" alt="images/groupedHorizontalCheckboxes.png" />
+</div>
+<div class="title">Figure 31. These inline checkboxes have the same displaying than buttons.</div>
+</div>
+<div class="paragraph"><p>And what about radio buttons? <strong>jQuery Mobile</strong> manages them in the exactly same way than checkboxes! In other terms, all what we&#8217;ve seen about checkboxes
+is also true for radio buttons!</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/radioButtons.png" alt="images/radioButtons.png" />
+</div>
+<div class="title">Figure 32. Checkboxes and radio buttons are managed similarly!</div>
+</div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">I remind you that users can only check one radio button of same <tt>name</tt> attribute, whereas there are no limitation
+with checkboxes.</td>
+</tr></table>
+</div>
+</div></div>
+<div class="sect3">
+<h4 id="_in_brief_18">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Checkboxes and radio buttons are displayed as buttons.
+</p>
+</li>
+<li>
+<p>
+The value of the generated button is the text of the corresponding <tt>&lt;label&gt;</tt>.
+</p>
+</li>
+<li>
+<p>
+Putting <tt>&lt;fieldset&gt;</tt> inside our forms is good habit.
+</p>
+</li>
+<li>
+<p>
+<tt>data-role="controlgroup"</tt> permits to group checkboxes and radio buttons.
+</p>
+</li>
+<li>
+<p>
+They are vertically grouped by default.
+</p>
+</li>
+<li>
+<p>
+<tt>data-type="horizontal"</tt> permits to horizontally grouped them.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_select_menus_and_flip_toggle_switches">Select Menus And Flip Toggle Switches</h3>
+<div class="paragraph"><p>Since select menus are more advanced elements, it&#8217;s more difficult to manage them. But don&#8217;t worry !</p></div>
+<div class="sect3">
+<h4 id="_the_displaying_of_a_select_menu">The Displaying Of A Select Menu.</h4>
+<div class="paragraph"><p>First of all, let&#8217;s starting with a basic <tt>&lt;select&gt;</tt>:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="paragraph"><p>This code will generate a button: by clicking on it, the select box slides down:</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/nativeSelect.png" alt="images/nativeSelect.png" />
+</div>
+<div class="title">Figure 33. This select box is not very beautiful...</div>
+</div>
+<div class="paragraph"><p>What happened here?</p></div>
+<div class="paragraph"><p>By default, <strong>jQuery Mobile</strong> uses the native menu of the platform. In the above example, the screen has been taken from a desktop browser. On Android or iPhone,
+the design will be different!</p></div>
+<div class="paragraph"><p>If you want to force <strong>jQuery Mobile</strong> to create custom select boxes, you just have to add the <tt>data-native-menu="false"</tt> attribute on the <tt>&lt;select&gt;</tt> tag:</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/notNativeSelect.png" alt="images/notNativeSelect.png" />
+</div>
+<div class="title">Figure 34. It's better, isn't it?</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_features_of_custom_select_menus">Features Of Custom Select Menus</h4>
+<div class="paragraph"><p>One of the advantages of using custom select boxes is that we&#8217;re sure that they manage multiple selection, <tt>&lt;optgroup&gt;</tt> or others features:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+<tt>&lt;optgroup&gt;</tt> permits to group the options.
+</p>
+</li>
+<li>
+<p>
+This item is unselectable.
+</p>
+</li>
+<li>
+<p>
+This item is selected by default.
+</p>
+</li>
+</ol></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/advancedSelect.png" alt="images/advancedSelect.png" />
+</div>
+<div class="title">Figure 35. We're not sure that native menus manage all these features.</div>
+</div>
+<div class="paragraph"><p><strong>jQuery Mobile</strong> permits us to add a placeholder text for our select boxes: this text will be displayed if no option are selected and above the list of options
+when this one is opened.</p></div>
+<div class="paragraph"><p>This kind of text is generated by the library when the <tt>&lt;select&gt;</tt> tag contains:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+an <tt>&lt;option&gt;</tt> tag without <tt>value</tt> attribute (or with an empty <tt>value</tt> attribute).
+</p>
+</li>
+<li>
+<p>
+an <tt>&lt;option&gt;</tt> tag with the <tt>data-placeholder="true"</tt> attribute.
+</p>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+"Choose one&#8230;" will be the placeholder of the select menu.
+</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/placeholderSelect.png" alt="images/placeholderSelect.png" />
+</div>
+<div class="title">Figure 36. Of course, we can't select the placeholder.</div>
+</div>
+</li>
+</ol></div>
+</li>
+</ul></div>
+</div>
+<div class="sect3">
+<h4 id="_flip_toggle_switches">Flip Toggle Switches</h4>
+<div class="paragraph"><p>Before leaving select boxes, we have to see another feature: the flip toggle switches!</p></div>
+<div class="paragraph"><p>Imagine a form where we ask the user to choose between two options. To do that, we can write that:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="paragraph"><p>As you know, it will create a drop-down list like we&#8217;ve already seen.
+But if we add to the <tt>&lt;select&gt;</tt> tag this attribute: <tt>data-role="slider"</tt>&#8230;</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/switchSelect.png" alt="images/switchSelect.png" />
+</div>
+<div class="title">Figure 37. The select box becomes a switch!</div>
+</div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">This last feature works only with <tt>&lt;select&gt;</tt> containing two <tt>&lt;option&gt;</tt> tags. Furthermore, a <tt>&lt;select&gt;</tt> tag with
+<tt>data-role="slider"</tt> attribute doesn&#8217;t need to have the <tt>data-native-menu="false"</tt> attribute.</td>
+</tr></table>
+</div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_in_brief_19">In Brief</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+<tt>data-native-menu="false"</tt> forces <strong>jQuery Mobile</strong> to display its own select menu.
+</p>
+</li>
+<li>
+<p>
+This attribute also permits the using of advanced features like <tt>&lt;optgroup&gt;</tt>.
+</p>
+</li>
+<li>
+<p>
+Select boxes can have placeholder text if it contains:
+</p>
+<div class="olist loweralpha"><ol class="loweralpha">
+<li>
+<p>
+an <tt>&lt;option&gt;</tt> tag without value attribute (or with an empty value attribute).
+</p>
+</li>
+<li>
+<p>
+an <tt>&lt;option&gt;</tt> tag with the <tt>data-placeholder="true"</tt> attribute.
+</p>
+</li>
+</ol></div>
+</li>
+<li>
+<p>
+A select menu containing two <tt>&lt;option&gt;</tt> can be transformed intolfip toggle switch thanks to <tt>data-role="slider"</tt> attribute.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_submitting_forms">Submitting Forms</h3>
+<div class="paragraph"><p>Forms would be quite useless if we couldn&#8217;t submit them! In <strong>jQuery Mobile</strong>, forms have the same behavior than regular links: they use Ajax.</p></div>
+<div class="paragraph"><p>You have seen with our previous examples than we used anchors to set their <tt>action</tt> attribute.</p></div>
+<div class="paragraph"><p>We can also give an external page, like traditionnal <strong>HTML</strong> forms. <strong>jQuery-Mobile</strong> will call this page and send to it form&#8217;s values. Then, it will directly
+insert the wanted page in the DOM!</p></div>
+<div class="paragraph"><p>Here it&#8217;s an example. We&#8217;ll use this <strong>HTML</strong> code:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="paragraph"><p>Note that the form has its <tt>action</tt> attribute set to <tt>target.php</tt>. This page is this one:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+We check the choosen language.
+</p>
+</li>
+<li>
+<p>
+And we display the corresponding message.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>As you can see, this page is very simple: we get the user&#8217;s choice and we display a message according to it.
+The <strong>HTML</strong> code is basically a traditional <strong>jQuery-Mobile</strong> page.</p></div>
+<div class="paragraph"><p>So, the library will call this page and then insert it into our application. Below is the result, if we assume
+the user has chosen <em>JavaScript</em>:</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/formSubmission.png" alt="images/formSubmission.png" />
+</div>
+<div class="title">Figure 38. Because the page is directly inserted, the jQuery Mobile style is applied on it.</div>
+</div>
+<div class="paragraph"><p>It could be interesting to see <strong>HTML</strong> code <strong>jQuery Mobile</strong> has generated:</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/formGeneratedCode.png" alt="images/formGeneratedCode.png" />
+</div>
+<div class="title">Figure 39. We see that target.php has been injected in the DOM.</div>
+</div>
+<div class="paragraph"><p>Since <tt>&lt;form&gt;</tt> tags have a behavior similar to <tt>&lt;a&gt;</tt>, we can also set to them a <tt>data-transition</tt> attribute like we&#8217;ve already seen
+with links.</p></div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">If you don&#8217;t want <strong>jQuery Mobile</strong> to use Ajax for submitting forms, set a <tt>data-ajax="false"</tt> attribute on the corresponding <tt>&lt;form&gt;</tt>.
+In this case, the target page will be loaded after a full page refresh.</td>
+</tr></table>
+</div>
+</div></div>
+<div class="sect3">
+<h4 id="_in_brief_20">In Brief</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+<tt>action</tt> attribute of forms can be an anchor or an external page.
+</p>
+</li>
+<li>
+<p>
+An external page will be inserted into the DOM.
+</p>
+</li>
+<li>
+<p>
+We can specify transitions on forms.
+</p>
+</li>
+<li>
+<p>
+<tt>data-ajax="false"</tt> permits to not use <strong>AJAX</strong> for submission.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_plugin_methods">Plugin Methods</h3>
+<div class="paragraph"><p>Form elements are totally transformed by <strong>jQuery Mobile</strong>. We&#8217;ve seen that checkboxes become buttons like whereas select boxes becomes kind of pop-up windows.</p></div>
+<div class="paragraph"><p>These features, despite they&#8217;re wonderful, add a problem: we can&#8217;t dynamically disable form elements!</p></div>
+<div class="sect3">
+<h4 id="_the_main_concept">The Main Concept</h4>
+<div class="paragraph"><p>Let&#8217;s try with this form:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="paragraph"><p>We can imagine this kind of code in order to disable or enable the checkboxes:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+We toggle the disabled state of each input.
+</p>
+</li>
+</ol></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/formPluginBad.png" alt="images/formPluginBad.png" />
+</div>
+<div class="title">Figure 40. We can't see that buttons are disabled!</div>
+</div>
+<div class="paragraph"><p>But, because of <strong>jQuery Mobile</strong>, the results won&#8217;t be visible for the user!</p></div>
+<div class="paragraph"><p>Of course, the library provides a solution by extending each form elements with a new method:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<tt>selectmenu()</tt> for <tt>&lt;select&gt;</tt>
+</p>
+</li>
+<li>
+<p>
+<tt>textinput()</tt> for text <tt>&lt;input&gt;</tt> and <tt>&lt;textarea&gt;</tt>
+</p>
+</li>
+<li>
+<p>
+<tt>checkboxradio()</tt> for checkboxes and radio buttons
+</p>
+</li>
+<li>
+<p>
+<tt>slider()</tt> for sliders
+</p>
+</li>
+<li>
+<p>
+<tt>button()</tt> for buttons
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>All these methods accept these strings parameters:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<tt>enable</tt>
+</p>
+</li>
+<li>
+<p>
+<tt>disable</tt>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>So, our example can be write like this:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+If the input is already disabled, we&#8217;ll enable it.
+</p>
+</li>
+<li>
+<p>
+We call the method provided by <strong>jQuery Mobile</strong>.
+</p>
+</li>
+</ol></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/formPluginGood.png" alt="images/formPluginGood.png" />
+</div>
+<div class="title">Figure 41. Now it works!</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_ones_which_need_to_be_refreshed">The Ones Which Need To Be Refreshed</h4>
+<div class="paragraph"><p>Note that <tt>slider()</tt>, <tt>checkboxradio()</tt> and <tt>selectmenu()</tt> also accept another parameter: <tt>refresh</tt>.
+Use it when the value or the contents of the corresponding element is modified in order to permit the user to see the update.</p></div>
+<div class="paragraph"><p>Let&#8217;s consider this form:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="paragraph"><p>We want to add an <tt>&lt;option&gt;</tt> tag when the user submits the form. With <strong>jQuery Mobile</strong>, we&#8217;ll proceed like this:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="paragraph"><p><tt>selectmenu()</tt> can accept two last parameters: <tt>open</tt> and <tt>close</tt>. As you&#8217;ve probably guessed, it opens or closes the corresponding <tt>&lt;select&gt;</tt>.
+Let&#8217;s try this one:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+</div>
+<div class="sect3">
+<h4 id="_in_brief_21">In Brief</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Forms elements are widgets made by <strong>jQuery Mobile</strong>.
+</p>
+</li>
+<li>
+<p>
+We can&#8217;t manipulate them as normal forms elements.
+</p>
+</li>
+<li>
+<p>
+<strong>jQuery Mobile</strong> provides methods to manage them.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_labs_having_interactions_with_form">Labs: Having Interactions With Form</h3>
+<div class="paragraph"><p>For these labs, start with the file <tt>labs/labs6.htm</tt>.</p></div>
+<div class="paragraph"><p>We finally know how to create a form! So modify the second page in order to have one.</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+It will contain two fields: a <tt>text</tt> input for the contact name and a <tt>tel</tt> input for its phone number.
+</p>
+</li>
+<li>
+<p>
+Also add a submit button!
+</p>
+</li>
+<li>
+<p>
+Of course, the user will be able to enter the phone number directly inside this last input, but the displaying can be different according to the devices.
+The buttons we&#8217;ve previously created will also permit the user to enter the phone number.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>To do that, use the file <tt>labs/labs6.js</tt> and complete it in order to change the value of the <tt>tel</tt> input when the user clicks on one of the buttons.
+Note that the last button supposes to be an rease button: by clicking on it, the script must delete the last character of the phone number.</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Some functions have been created in order to automatically save the new contacts: don&#8217;t worry about it. But you have to update the content of the list
+just after the main page is shown!
+</p>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">Use the <tt>pageshow</tt> event!</td>
+</tr></table>
+</div>
+</li>
+<li>
+<p>
+Don&#8217;t forget to correctly link your script on yout <strong>HTML</strong> page!
+</p>
+</li>
+<li>
+<p>
+Use <tt>$('#mainPage').find('#contacts_list')</tt> instead of <tt>$('#mainPage')</tt>:  this last doesn&#8217;t work well for this labs!
+</p>
+</li>
+</ol></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/labs6.png" alt="images/labs6.png" />
+</div>
+<div class="title">Figure 42. The wanted result.</div>
+</div>
+<div class="paragraph"><p>The solutions can be found in <tt>labs/labs6-solution.htm</tt> and <tt>labs/labs6-solution.js</tt>.</p></div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">We use the new <strong>HTML5</strong> local storage in order to save all our contacts: for greater stability, we should use another system like a storage in SQL database via PHP,
+but local storage is more convenient for training ourselves in these labs!</td>
+</tr></table>
+</div>
+</div></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="lists">List Views</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Lists maybe are one of the most important elements in a touch application.
+They permit to display data in a very convenient way and users use to touch them
+in order to navigate through the application.</p></div>
+<div class="paragraph"><p>Of course, <strong>jQuery Mobile</strong> has its own list views&#8230; and a lot of features around them!</p></div>
+<div class="sect2">
+<h3 id="_basic_and_linked_lists">Basic And Linked Lists</h3>
+<div class="sect3">
+<h4 id="_creating_a_list_view">Creating A List View</h4>
+<div class="paragraph"><p>First of all, I remind you that there are two kinds of lists:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Unordered lists are not numbered&#8230;
+</p>
+</li>
+<li>
+<p>
+&#8230; whereas ordered lists are.
+</p>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/basicLists.png" alt="images/basicLists.png" />
+</div>
+<div class="title">Figure 43. Differences between the two lists.</div>
+</div>
+</li>
+</ul></div>
+<div class="paragraph"><p><strong>jQuery Mobile</strong> will transform these lists if we set to them the <tt>data-role="listview"</tt> attribute:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/jqmBasicLists.png" alt="images/jqmBasicLists.png" />
+</div>
+<div class="title">Figure 44. The library has transformed the lists.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_linked_list">Linked List</h4>
+<div class="paragraph"><p>Furthermore, if we put a <tt>&lt;a&gt;</tt> tag within a list item, this last will be entirely clickable:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/linkedLists.png" alt="images/linkedLists.png" />
+</div>
+<div class="title">Figure 45. Transform a list into a link is very easy!</div>
+</div>
+<div class="paragraph"><p>And what about if we want to have two links in one list item? There is no problem, in this case <strong>jQuery Mobile</strong> will split
+the generated button!</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/splittedList.png" alt="images/splittedList.png" />
+</div>
+<div class="title">Figure 46. A list item containing two links is automatically splitted.</div>
+</div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">We use the classes <tt>ui-li-heading</tt> and <tt>ui-li-desc</tt> in order to have a better display.</td>
+</tr></table>
+</div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_changing_the_icons">Changing The Icons</h4>
+<div class="paragraph"><p>Furthermore, we can change the displayed icon of <span class="underline">all</span> items by setting a <tt>data-split-icon</tt> attribute to the corresponding <tt>&lt;li&gt;</tt> tag.
+This attribute accepts the same values than <tt>data-icon</tt> we&#8217;ve already used for buttons. Note that we can also individually set an icon
+thanks to this last attribute:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+All icons will be the "forward" one.
+</p>
+</li>
+<li>
+<p>
+But this icon will be "home".
+</p>
+</li>
+</ol></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/splittedListIcons.png" alt="images/splittedListIcons.png" />
+</div>
+<div class="title">Figure 47. We can change the displayed icons.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_inset_lists">Inset Lists</h4>
+<div class="paragraph"><p>To close this point, let&#8217;s see the <tt>data-inset="true"</tt> attribute: by default lists fill the width of the screen but, thanks to
+this attribute, they will be displayed as blocks:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+Note the <tt>data-inset="true"</tt> attribute!
+</p>
+</li>
+</ol></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/insetList.png" alt="images/insetList.png" />
+</div>
+<div class="title">Figure 48. We can transform a list into an inset one with only one attribute!</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_in_brief_22">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+<tt>data-role="listview"</tt> transforms a list into list view.
+</p>
+</li>
+<li>
+<p>
+List items containing <tt>&lt;a&gt;</tt> tags are transformed into buttons.
+</p>
+</li>
+<li>
+<p>
+A list item containg two <tt>&lt;a&gt;</tt> tags will be splitted into two buttons.
+</p>
+</li>
+<li>
+<p>
+<tt>data-split-icon</tt> permits to change the displayed icons.
+</p>
+</li>
+<li>
+<p>
+<tt>data-inset="true"</tt> permits to transform the list into an inset one.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_nested_lists">Nested Lists</h3>
+<div class="paragraph"><p>Sometimes we want to put lists inside other lists. If we do that, <strong>jQuery Mobile</strong> will automatically link
+nested list between each other!</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/nestedLists.png" alt="images/nestedLists.png" />
+</div>
+<div class="title">Figure 49. Nested lists can be used for easy navigation.</div>
+</div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">As you can see, the library doesn&#8217;t automatically add a back button on the nested list. Unfortunately,
+we can&#8217;t add one with a <tt>data-add-back-btn="true"</tt> attribute&#8230; For now, we can manually add a link as we&#8217;ve made
+in this example.</td>
+</tr></table>
+</div>
+</div></div>
+<div class="sect3">
+<h4 id="_in_brief_23">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Nested lists are automatically linked between each other.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_list_dividers_and_count_bubbles">List Dividers And Count Bubbles</h3>
+<div class="paragraph"><p>The strength of <strong>jQuery Mobile</strong> is to improve our DOM elements. Lists don&#8217;t avoid the rule with dividers and count bubbles.</p></div>
+<div class="paragraph"><p>What&#8217;s a list divider ? It simply is a nice way to aerate our lists.
+By adding the <tt>data-role="list-divider"</tt> attribute to a list item, this one will be displayed in another way than the others ones:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+This item will be highlighted.
+</p>
+</li>
+</ol></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/listDividers.png" alt="images/listDividers.png" />
+</div>
+<div class="title">Figure 50. Dividers make lists more readable.</div>
+</div>
+<div class="paragraph"><p>We can also add a count bubble inside list items. Simply wrap the contents to put into a bubble by an element having the <tt>ui-li-count</tt> class:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/countBubbles.png" alt="images/countBubbles.png" />
+</div>
+<div class="title">Figure 51. Count bubbles permit us to show more informations.</div>
+</div>
+<div class="paragraph"><p>Even if count bubbles have the goal to display counters, we can write text inside them:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/countBubblesText.png" alt="images/countBubblesText.png" />
+</div>
+<div class="title">Figure 52. Text can be displayed inside count bubbles.</div>
+</div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">The case of nested lists is particular: as you can see we have also wrapped the texts <em>Browsers</em> and <em>Graphics</em> with
+a <tt>&lt;span&gt;</tt>. It&#8217;s because <strong>jQuery Mobile</strong> uses the first container&#8217;s text it finds as the title of the nested list.</td>
+</tr></table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/countBubblesNestedLists.png" alt="images/countBubblesNestedLists.png" />
+</div>
+<div class="title">Figure 53. "Browsers" is found first, so it's used as title.</div>
+</div>
+</div></div>
+<div class="sect3">
+<h4 id="_in_brief_24">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+<tt>data-role="list-divider"</tt> highlights the corresponding list item.
+</p>
+</li>
+<li>
+<p>
+<tt>ui-li-count</tt> class transforms the corresponding container into a count bubble.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_thumbnails_and_icons">Thumbnails And Icons</h3>
+<div class="paragraph"><p>If the first child element of a list item is an image, <strong>jQuery Mobile</strong> will use it as a thumbnail and will place it on the left:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/thumbnails.png" alt="images/thumbnails.png" />
+</div>
+<div class="title">Figure 54. Images are automatically scaled to 80px*80px</div>
+</div>
+<div class="paragraph"><p>If you want to use standard 16px*16px icons, simply add the <tt>ui-li-icon</tt> class on the corresponding image:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+Note the <tt>ui-li-icon</tt> class!
+</p>
+</li>
+</ol></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/listsIcons.png" alt="images/listsIcons.png" />
+</div>
+<div class="title">Figure 55. The ui-li-icon class permits to vertically center the icon.</div>
+</div>
+<div class="sect3">
+<h4 id="_in_brief_25">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+If the first child element of a list item is an image, <strong>jQuery Mobile</strong> displays it as a thumbnail.
+</p>
+</li>
+<li>
+<p>
+<tt>ui-li-icon</tt> class permits to vertically center 16px*16px icons.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_search_filter">Search Filter</h3>
+<div class="paragraph"><p>Probably one of the most powerfull feature provide by <strong>jQuery Mobile</strong> for lists!</p></div>
+<div class="paragraph"><p>By simply setting a <tt>data-filter="true"</tt> on list view, this one will be prepended by a search input. Thanks to this last, the user
+will be able to filter the lists in order to display only what he&#8217;s looking for!</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+<tt>data-filter="true"</tt> will automatically add a search input for this list.
+</p>
+</li>
+</ol></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/searchFilter.png" alt="images/searchFilter.png" />
+</div>
+<div class="title">Figure 56. We can use list dividers even with a filter.</div>
+</div>
+<div class="paragraph"><p>By default, the placeholder text inside the search input is <em>Filter items&#8230;</em>.
+<strong>jQuery Mobile</strong> permits us to change this text. To do that, we have to
+set the <tt>data-filter-placeholder="X"</tt> attribute to the list, where <em>X</em> is the text we want to show.</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+We modify the placeholder of the search input.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>We can also change the way the list is filtered, but we&#8217;ll see that later in this course.</p></div>
+<div class="sect3">
+<h4 id="_in_brief_26">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+<tt>data-filter="true"</tt> adds a search input to filter the corresponding list.
+</p>
+</li>
+<li>
+<p>
+<tt>data-filter-placeholder</tt> permits to modify the default placeholder of this search input.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_list_api">The List API</h3>
+<div class="paragraph"><p>When we build an application, we often have to update lists: sinces <strong>jQuery Mobile</strong> modifies their behavior we have to
+specify that we want to update one!</p></div>
+<div class="paragraph"><p>First of all, we must call the <tt>listview()</tt> method on the wanted list: it&#8217;s ti be sure that the list is considered as a <strong>jQuery Mobile</strong> one.</p></div>
+<div class="paragraph"><p>Then, we can modify it and, once it&#8217;s done, call again <tt>listview()</tt> by passing to it the <tt>"refresh"</tt> parameter:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>If we don&#8217;t do that, the displaying won&#8217;t change!</p></div>
+</td>
+</tr></table>
+</div>
+</div></div>
+<div class="sect3">
+<h4 id="_in_brief_27">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+<tt>listview()</tt> is the method that manages the displaying of list views.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_labs_a_beautiful_display_with_list_views">Labs: A Beautiful Display With List Views</h3>
+<div class="paragraph"><p>For these labs, start with the file <tt>labs/labs7.htm</tt> and make a little change in order to transform the list of contacts into a list view.
+Having a search filter would be also very cool!</p></div>
+<div class="paragraph"><p>Then, go to the file <tt>labs/labs7.js</tt> and:</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Modify the code so that the list view will be correctly refreshed.
+</p>
+</li>
+<li>
+<p>
+Split each list item in order to have splitted buttons: the first one will permit the user to phone to the corresponding contact when he&#8217;ll click on it,
+whereas the second button will permit to delete the contact from the list.
+</p>
+</li>
+<li>
+<p>
+It could be better if a confirmation is asked before delete a contact!
+</p>
+</li>
+</ol></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/labs7.png" alt="images/labs7.png" />
+</div>
+<div class="title">Figure 57. The wanted result.</div>
+</div>
+<div class="paragraph"><p>The solutions can be found in <tt>labs/labs7-solution.htm</tt> and <tt>labs/labs7-solution.js</tt>.</p></div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph"><p>It&#8217;s very easy to have a "phone" link: if we use <tt>mailto:</tt> to send an e-mail, we can use <tt>tel:</tt> in order to send a phone call!</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="paragraph"><p>This works very well on mobile devices!</p></div>
+</td>
+</tr></table>
+</div>
+</div></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="api">API</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><strong>jQuery Mobile</strong> provides a very powerful API. We can configure the default settings of the library</p></div>
+<div class="paragraph"><p>In this chapter, we&#8217;ll see what this API permits us to do.</p></div>
+<div class="sect2">
+<h3 id="_configuring_defaults">Configuring Defaults</h3>
+<div class="paragraph"><p>As we have seen, <strong>jQuery Mobile</strong> provides a lot of features.
+The most of them are configurable&#8230; But how?</p></div>
+<div class="paragraph"><p>First of all, let&#8217;s come back to the really first chapter of this course, where we learned
+how to include the library:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+This tag must be here in order that the application can be adapted to the device.
+</p>
+</li>
+<li>
+<p>
+We include the last version of <strong>jQuery</strong> library: mandatory for using <strong>jQuery Mobile</strong>!
+</p>
+</li>
+<li>
+<p>
+This is where you would write your own code using <strong>jQuery Mobile</strong>. We include it before the library in the case we want to change the configuration.
+</p>
+</li>
+<li>
+<p>
+We include the last version of <strong>jQuery Mobile</strong>.
+</p>
+</li>
+<li>
+<p>
+We don&#8217;t forget to include the <strong>CSS</strong> file using by <strong>jQuery Mobile</strong>.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>As you can guess, we&#8217;ll set the configuration inside our <tt>myScript.js</tt> file.</p></div>
+<div class="sect3">
+<h4 id="_the_tt_mobileinit_tt_event">The <tt>mobileinit</tt> Event</h4>
+<div class="paragraph"><p>In order to permit us to change the configuration, <strong>jQuery Mobile</strong> triggers an event: <tt>mobileinit</tt>.</p></div>
+<div class="paragraph"><p>We have to listen for this event so that we&#8217;ll be sure that the library is included&#8230; and so can be configurable!</p></div>
+<div class="listingblock">
+<div class="title"><tt>myScript.js</tt></div>
+<div class="content"></div></div>
+<div class="paragraph"><p>When <strong>jQuery Mobile</strong> is loaded, it adds a special object directly to <strong>jQuery</strong> itself:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+This object is called <tt>mobile</tt>.
+</p>
+</li>
+<li>
+<p>
+It contains the properties that configure the whole library.
+</p>
+</li>
+<li>
+<p>
+Configuring <strong>jQuery Mobile</strong> simply is modifying these properties!
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="title"><tt>myScript.js</tt></div>
+<div class="content"></div></div>
+<div class="paragraph"><p>For example, we can set a default transition for page changes. By default, <strong>jQuery Mobile</strong> uses a <tt>slide</tt> transition,
+but we can change this behavior!</p></div>
+<div class="listingblock">
+<div class="title"><tt>myScript.js</tt></div>
+<div class="content"></div></div>
+<div class="paragraph"><p>If the user clicks on a link, <strong>jQuery Mobile</strong> will try to load the corresponding page with Ajax. If the page can&#8217;t be loaded,
+it displays this message: <em>Error Loading Page</em>.</p></div>
+<div class="paragraph"><p>We can change this text by setting the <tt>pageLoadErrorMessage</tt> property of <tt>mobile</tt> object:</p></div>
+<div class="listingblock">
+<div class="title"><tt>myScript.js</tt></div>
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/customError.png" alt="images/customError.png" />
+</div>
+<div class="title">Figure 58. Changing configuration permits to have a more custom application.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_namespace_and_tt_data_tt_attributes">Namespace And <tt>data-</tt> Attributes</h4>
+<div class="paragraph"><p><strong>jQuery Mobile</strong> uses a lot the <tt>data-</tt> attributes. Because of that, we can have some conflicts if another library wants
+to use them : what will happen if another library is using <tt>data-role</tt> attribute?
+To protect that, <strong>jQuery Mobile</strong> permits us to set a namespace thanks to the <tt>ns</tt> property. By default, this
+namespace is empty.</p></div>
+<div class="listingblock">
+<div class="title"><tt>myScript.js</tt></div>
+<div class="content"></div></div>
+<div class="paragraph"><p>With the above example <strong>jQuery Mobile</strong> will only look for <tt>data-myNameSpace-</tt> attributes, like <tt>data-myNameSpace-role</tt> attributes.</p></div>
+<div class="paragraph"><p>The question of namespace is a delicate subject in <strong>jQuery Mobile</strong> team: they wonder if they have to set its default as empty or not.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_configuring_filter_lists">Configuring Filter Lists</h4>
+<div class="paragraph"><p>Do you remember the placeholder text for filter lists? We have manually setted one with <tt>data-filter-placeholder</tt> attribute&#8230;
+We can change the default placeholder but, this time, we have to use a more advanced object:
+<tt>$.mobile.listview.prototype.options</tt>.
+This object has the <tt>filterPlaceholder</tt> property: it&#8217;s what we&#8217;re looking for!</p></div>
+<div class="listingblock">
+<div class="title"><tt>myScript.js</tt></div>
+<div class="content"></div></div>
+<div class="paragraph"><p>Thanks to this last object, we can also change the behavior of the filtering by overwritting the method
+<tt>filterCallback()</tt>. This method will be provided two arguments. First, the text of the current list item and
+second the value being searched for.</p></div>
+<div class="paragraph"><p>By default, this method is looking for the searched value on the whole text item. If we want to display only
+the list items having the begin of their text matched with the searched value, we can write this kind of function:</p></div>
+<div class="listingblock">
+<div class="title"><tt>myScript.js</tt></div>
+<div class="content"></div></div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">There are a lot of options we can set for <strong>jQuery Mobile</strong>, too many to describe them here. I suggest you to
+consult <a href="http://jquerymobile.com/test/docs/api/globalconfig.html">the documentation</a>.</td>
+</tr></table>
+</div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_in_brief_28">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+<tt>mobileinit</tt> is the event we have to listen in order to configure <strong>jQuery Mobile</strong>.
+</p>
+</li>
+<li>
+<p>
+The object used to configure the library is <tt>$.mobile</tt>.
+</p>
+</li>
+<li>
+<p>
+We can define a <strong>jQuery Mobile</strong> namespace thanks to <tt>$.mobile.ns</tt>.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_events">Events</h3>
+<div class="paragraph"><p><strong>jQuery Mobile</strong> provides a lot of new events in order to manage easily the mobile devices.</p></div>
+<div class="paragraph"><p>The first one is very important: <tt>pagecreate</tt>.</p></div>
+<div class="paragraph"><p>This event is triggered after the page is initialized. <strong>The documentation recommends to use this event
+instead of <tt>$(document).ready()</tt></strong>. Why ?</p></div>
+<div class="paragraph"><p>We have already seen a problem due to Ajax navigation when we&#8217;ve spoken about <tt>pagebeforeshow</tt> event.
+The interest of <tt>pagecreate</tt> is that it&#8217;s triggered when its corresponding page is created, even if it&#8217;s created
+after an Ajax call!</p></div>
+<div class="listingblock">
+<div class="title"><tt>myScript.js</tt></div>
+<div class="content"></div></div>
+<div class="paragraph"><p>We have already spoken previously about these events: <tt>pageshow</tt>, <tt>pagebeforeshow</tt>, <tt>pagehide</tt> and <tt>pagebeforehide</tt>.</p></div>
+<div class="paragraph"><p>Of course, there are other events provided by <strong>jQuery Mobile</strong>.</p></div>
+<div class="paragraph"><p>For example, the <tt>taphold</tt> event permits to detect when the user moves his finger on the screen:</p></div>
+<div class="listingblock">
+<div class="title"><tt>myScript.js</tt></div>
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+Every time the user taps on the page, we increment the corresponding variable and display it.
+</p>
+</li>
+<li>
+<p>
+Every time the user taps on the paragraph, we increment the corresponding variable and display it.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>Mobile devices often propose to change their orientation in order to show a more convenient display: <strong>jQuery Mobile</strong> can
+detect this event and trigger it!
+The callback function provides an <tt>orientation</tt> variable, which contains the new orientation as
+string : its value can be <tt>portrait</tt> or <tt>landscape</tt>.</p></div>
+<div class="listingblock">
+<div class="title"><tt>myScript.js</tt></div>
+<div class="content"></div></div>
+<div class="paragraph"><p>In order to normalize mouse and touch events, <strong>jQuery Mobile</strong> provide "virtual" events.
+They permit to listen for basic mouse and touch events, such as <tt>click</tt>, <tt>mouseover</tt> or <tt>mousemove</tt> but,
+behind the scenes, the library uses the correct listener to correspond with the mobile device used by the visitor.</p></div>
+<div class="paragraph"><p>These "virtual" events are used like "normal" ones:</p></div>
+<div class="listingblock">
+<div class="title"><tt>myScript.js</tt></div>
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+<tt>vmousedown</tt> is the "virtual" event for <tt>mousedown</tt>.
+</p>
+</li>
+</ol></div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">There are a lot of events we can listen with <strong>jQuery Mobile</strong>, too many to describe them here. I suggest you to
+consult <a href="http://jquerymobile.com/test/docs/api/events.html">the documentation</a>.</td>
+</tr></table>
+</div>
+</div></div>
+<div class="sect3">
+<h4 id="_in_brief_29">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+<tt>pagecreate</tt> must be used instead of <tt>$(document).ready()</tt>.
+</p>
+</li>
+<li>
+<p>
+<strong>jQuery Mobile</strong> provides a lot of specific events for mobile devices.
+</p>
+</li>
+<li>
+<p>
+It also provides "virtual" mouse and touch events.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_methods_and_utilites">Methods And Utilites</h3>
+<div class="paragraph"><p><strong>jQuery Mobile</strong> also provides various methods and utilities in order to make our development easier.</p></div>
+<div class="sect3">
+<h4 id="_managing_tt_data_tt_attributes">Managing <tt>data-</tt> Attributes</h4>
+<div class="paragraph"><p>We have seen that the library uses and overuses the <tt>data-</tt> attributes. So it&#8217;s normal that it provides some methods
+around them!</p></div>
+<div class="paragraph"><p><tt>jqmData()</tt>, <tt>jqmRemoveData()</tt> and <tt>jqmHasData()</tt> can be use to set, get and check these <tt>data-</tt> attributes.
+We use them in exactly the same way than the <a href="http://api.jquery.com/jQuery.data/">original methods</a> provided by <strong>jQuery</strong>,
+except that <strong>jQuery Mobile</strong> automatically manages its namespace (remember, the one we can set with <tt>$.mobile.ns</tt>).</p></div>
+<div class="paragraph"><p>Furthermore, <strong>jQuery Mobile</strong> has created another custom selector : <tt>:jqmData</tt>.
+Thanks to it, you can select DOM elements used by <strong>jQuery Mobile</strong> with their <tt>data-</tt> attributes, regardless of the namespace:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+</div>
+<div class="sect3">
+<h4 id="_loading_message">Loading Message</h4>
+<div class="paragraph"><p>The <tt>$.mobile</tt> object contains some useful methods, like <tt>showPageLoadingMsg()</tt> and <tt>hidePageLoadingMsg()</tt>.
+These methods show/hide a message that informs the user that something is loading.</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+Listen for the creation of a <strong>jQuery Mobile</strong>.
+</p>
+</li>
+<li>
+<p>
+When this page is shown&#8230;
+</p>
+</li>
+<li>
+<p>
+&#8230; we show the loading message.
+</p>
+</li>
+<li>
+<p>
+<tt>vclick</tt> is the "virtual" event for <tt>click</tt>.
+</p>
+</li>
+<li>
+<p>
+We hide the loading message when the user clicks.
+</p>
+</li>
+</ol></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/loading.png" alt="images/loading.png" />
+</div>
+<div class="title">Figure 59. The loading message can be shown manually.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_forcing_the_change_of_page">Forcing The Change Of Page</h4>
+<div class="paragraph"><p>We can also force the user to change page with <tt>$.mobile.changePage()</tt> method.</p></div>
+<div class="paragraph"><p>The first parameter is required and defines the target page to show: it can be an absolute or
+relative URL (as a string) or a <strong>jQuery</strong> object (like <tt>$('#secondPage')</tt>).</p></div>
+<div class="paragraph"><p>The second parameter is optional: it&#8217;s an object containing several properties:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<tt>transition</tt>: the transition to apply during the changing.
+</p>
+</li>
+<li>
+<p>
+<tt>reverse</tt>: define the direction of the transition. It&#8217;s the same effect than <tt>data-rel="back"</tt> for links.
+</p>
+</li>
+<li>
+<p>
+<tt>changeHash</tt>: define if the hash in the location bar has to be updated or not.
+</p>
+</li>
+<li>
+<p>
+<tt>role</tt>: data-role value to be used when displaying the page.
+</p>
+</li>
+<li>
+<p>
+<tt>pageContainer</tt>: the element that will contain the page to show.
+</p>
+</li>
+<li>
+<p>
+<tt>type</tt>: "get" or "post".
+</p>
+</li>
+<li>
+<p>
+<tt>data</tt>: an object containing data to send to the page by the Ajax request.
+</p>
+</li>
+<li>
+<p>
+<tt>reloadPage</tt>: define if the library has to force the reload of the page (to prevent caching).
+</p>
+</li>
+</ul></div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">The last three properties are useful only when the page to go is an URL.</td>
+</tr></table>
+</div>
+</div></div>
+<div class="paragraph"><p>We can use this method in this way:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="colist arabic"><ol>
+<li>
+<p>
+When a page is shown, we select the first option of its select menu: the placeholder.
+</p>
+</li>
+<li>
+<p>
+When the value of this select menu is changed, we go to the corresponding page.
+</p>
+</li>
+</ol></div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">You can find all the methods and utilities provided by <strong>jQuery Mobile</strong> in <a href="http://jquerymobile.com/test/docs/api/methods.html">the documentation</a>.</td>
+</tr></table>
+</div>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_in_brief_30">In Brief:</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+<strong>jQuery Mobile</strong> provides a lot of methods and utilites.
+</p>
+</li>
+<li>
+<p>
+Don&#8217;t hesitate to watch <a href="http://jquerymobile.com/test/docs/api/methods.html">the documentation</a>!
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_labs_configuring_our_application">Labs: Configuring Our Application</h3>
+<div class="paragraph"><p>For these labs, start with the file <tt>labs/labs8.js</tt> and modify it in order
+to change the <strong>jQuery Mobile</strong> configuration: we want to change the placeholder text for filters.</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/labs8.png" alt="images/labs8.png" />
+</div>
+<div class="title">Figure 60. The wanted result.</div>
+</div>
+<div class="paragraph"><p>The solution can be found in <tt>labs/labs8-solution.js</tt>.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="theme">Theme Framework</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><strong>jQuery Mobile</strong> uses the new properties provided by <strong>CSS3</strong> in order to create very nice applications.</p></div>
+<div class="paragraph"><p>Furthermore, thanks to a system of swatch colors, we can manually specify a design to apply on each element!</p></div>
+<div class="sect2">
+<h3 id="_themes_amp_swatches">Themes &amp; Swatches</h3>
+<div class="paragraph"><p>The library defines five swatches: <tt>a</tt> to <tt>e</tt>.</p></div>
+<div class="paragraph"><p>If the last one is generally used for errors displaying, the others ones permit to change a little the colors of an application.</p></div>
+<div class="paragraph"><p>To apply a specific swatch, simply add the <tt>data-theme="x"</tt> attribute on the wanted element, where <tt>x</tt> is a letter form <tt>a</tt> to <tt>e</tt>.</p></div>
+<div class="paragraph"><p>We can apply a swatch on every tag having a <tt>data-role</tt> attribute or automatically transformed by <strong>jQuery Mobile</strong>:</p></div>
+<div class="listingblock">
+<div class="content"></div></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/swatchThemes.png" alt="images/swatchThemes.png" />
+</div>
+<div class="title">Figure 61. Using all the themes in the same page is really not a good idea...</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_create_our_own_swatch">Create Our Own Swatch</h3>
+<div class="paragraph"><p><strong>jQuery Mobile</strong> permits us to create our own swatches colors!</p></div>
+<div class="paragraph"><p>To do that, we have to copy and paste this <strong>CSS</strong> code:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>/* A
+-----------------------------------------------------------------------------------------------------------*/
+
+.ui-bar-a {
+    border: 1px solid       #2A2A2A;
+    background:             #111111;
+    color:                  #ffffff;
+    font-weight: bold;
+    text-shadow: 0 -1px 1px #000000;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#3c3c3c), to(#111)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, #3c3c3c, #111); /* Chrome 10+, Saf5.1+ */
+    background-image:    -moz-linear-gradient(top, #3c3c3c, #111); /* FF3.6 */
+    background-image:     -ms-linear-gradient(top, #3c3c3c, #111); /* IE10 */
+    background-image:      -o-linear-gradient(top, #3c3c3c, #111); /* Opera 11.10+ */
+    background-image:         linear-gradient(top, #3c3c3c, #111);
+}
+.ui-bar-a,
+.ui-bar-a input,
+.ui-bar-a select,
+.ui-bar-a textarea,
+.ui-bar-a button {
+    font-family: Helvetica, Arial, sans-serif;
+}
+.ui-bar-a .ui-link-inherit {
+    color:                  #fff;
+}
+.ui-bar-a .ui-link {
+    color:                  #7cc4e7;
+    font-weight: bold;
+}
+.ui-body-a {
+    border: 1px solid       #2A2A2A;
+    background:             #222222;
+    color:                  #fff;
+     text-shadow: 0 1px 0   #000;
+    font-weight: normal;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#666), to(#222)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, #666, #222); /* Chrome 10+, Saf5.1+ */
+    background-image:    -moz-linear-gradient(top, #666, #222); /* FF3.6 */
+    background-image:     -ms-linear-gradient(top, #666, #222); /* IE10 */
+    background-image:      -o-linear-gradient(top, #666, #222); /* Opera 11.10+ */
+    background-image:         linear-gradient(top, #666, #222);
+}
+.ui-body-a,
+.ui-body-a input,
+.ui-body-a select,
+.ui-body-a textarea,
+.ui-body-a button {
+    font-family: Helvetica, Arial, sans-serif;
+}
+.ui-body-a .ui-link-inherit {
+    color:                  #fff;
+}
+.ui-body-a .ui-link {
+    color:                  #2489CE;
+    font-weight: bold;
+}
+.ui-br {
+    border-bottom: rgb(130,130,130);
+    border-bottom: rgba(130,130,130,.3);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+.ui-btn-up-a {
+    border: 1px solid       #222;
+    background:             #333333;
+    font-weight: bold;
+    color:                  #fff;
+    text-shadow: 0 -1px 1px #000;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#555), to(#333)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, #555, #333); /* Chrome 10+, Saf5.1+ */
+    background-image:    -moz-linear-gradient(top, #555, #333); /* FF3.6 */
+    background-image:     -ms-linear-gradient(top, #555, #333); /* IE10 */
+    background-image:      -o-linear-gradient(top, #555, #333); /* Opera 11.10+ */
+    background-image:         linear-gradient(top, #555, #333);
+}
+.ui-btn-up-a a.ui-link-inherit {
+    color:                  #fff;
+}
+.ui-btn-hover-a {
+    border: 1px solid       #000;
+    background:             #444444;
+    font-weight: bold;
+    color:                  #fff;
+    text-shadow: 0 -1px 1px #000;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#666), to(#444)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, #666, #444); /* Chrome 10+, Saf5.1+ */
+    background-image:    -moz-linear-gradient(top, #666, #444); /* FF3.6 */
+    background-image:     -ms-linear-gradient(top, #666, #444); /* IE10 */
+    background-image:      -o-linear-gradient(top, #666, #444); /* Opera 11.10+ */
+    background-image:         linear-gradient(top, #666, #444);
+}
+.ui-btn-hover-a a.ui-link-inherit {
+    color:                  #fff;
+}
+.ui-btn-down-a {
+    border: 1px solid       #000;
+    background:             #3d3d3d;
+    font-weight: bold;
+    color:                  #fff;
+    text-shadow: 0 -1px 1px #000;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#333), to(#5a5a5a)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, #333, #5a5a5a); /* Chrome 10+, Saf5.1+ */
+    background-image:    -moz-linear-gradient(top, #333, #5a5a5a); /* FF3.6 */
+    background-image:     -ms-linear-gradient(top, #333, #5a5a5a); /* IE10 */
+    background-image:      -o-linear-gradient(top, #333, #5a5a5a); /* Opera 11.10+ */
+    background-image:         linear-gradient(top, #333, #5a5a5a);
+}
+.ui-btn-down-a a.ui-link-inherit {
+    color:                  #fff;
+}
+.ui-btn-up-a,
+.ui-btn-hover-a,
+.ui-btn-down-a {
+    font-family: Helvetica, Arial, sans-serif;
+    text-decoration: none;
+}</tt></pre>
+</div></div>
+<div class="paragraph"><p>This is the style applied on each elements having the <tt>data-theme="a"</tt> attribute.</p></div>
+<div class="paragraph"><p>We want to create our own swatch: we&#8217;ll call it <em>f</em> and, in order to use it, we&#8217;ll have to set the <tt>data-theme="f"</tt> attribute on the wanted element.</p></div>
+<div class="paragraph"><p>So, start by replacing all <tt>-a</tt> with <tt>-f</tt>. Then, you can change the colors as you want!</p></div>
+<div class="paragraph"><p>In the below example, I&#8217;ve just delete all green values:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><tt>/* F
+-----------------------------------------------------------------------------------------------------------*/
+
+.ui-bar-f {
+    border: 1px solid       #2A002A;
+    background:             #110011;
+    color:                  #ff00ff;
+    font-weight: bold;
+    text-shadow: 0 -1px 1px #000000;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#3c003c), to(#101)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, #3c003c, #101); /* Chrome 10+, Saf5.1+ */
+    background-image:    -moz-linear-gradient(top, #3c003c, #101); /* FF3.6 */
+    background-image:     -ms-linear-gradient(top, #3c003c, #101); /* IE10 */
+    background-image:      -o-linear-gradient(top, #3c003c, #101); /* Opera 11.10+ */
+    background-image:         linear-gradient(top, #3c003c, #101);
+}
+.ui-bar-f,
+.ui-bar-f input,
+.ui-bar-f select,
+.ui-bar-f textarea,
+.ui-bar-f button {
+    font-family: Helvetica, Arial, sans-serif;
+}
+.ui-bar-f .ui-link-inherit {
+    color:                  #f0f;
+}
+.ui-bar-f .ui-link {
+    color:                  #7c00e7;
+    font-weight: bold;
+}
+.ui-body-f {
+    border: 1px solid       #2A002A;
+    background:             #220022;
+    color:                  #f0f;
+     text-shadow: 0 1px 0   #000;
+    font-weight: normal;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#606), to(#202)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, #606, #202); /* Chrome 10+, Saf5.1+ */
+    background-image:    -moz-linear-gradient(top, #606, #202); /* FF3.6 */
+    background-image:     -ms-linear-gradient(top, #606, #202); /* IE10 */
+    background-image:      -o-linear-gradient(top, #606, #202); /* Opera 11.10+ */
+    background-image:         linear-gradient(top, #606, #202);
+}
+.ui-body-f,
+.ui-body-f input,
+.ui-body-f select,
+.ui-body-f textarea,
+.ui-body-f button {
+    font-family: Helvetica, Arial, sans-serif;
+}
+.ui-body-f .ui-link-inherit {
+    color:                  #f0f;
+}
+.ui-body-f .ui-link {
+    color:                  #2400CE;
+    font-weight: bold;
+}
+.ui-br {
+    border-bottom: rgb(130,0,130);
+    border-bottom: rgba(130,0,130,.3);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+.ui-btn-up-f {
+    border: 1px solid       #202;
+    background:             #330033;
+    font-weight: bold;
+    color:                  #f0f;
+    text-shadow: 0 -1px 1px #000;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#505), to(#303)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, #505, #303); /* Chrome 10+, Saf5.1+ */
+    background-image:    -moz-linear-gradient(top, #505, #303); /* FF3.6 */
+    background-image:     -ms-linear-gradient(top, #505, #303); /* IE10 */
+    background-image:      -o-linear-gradient(top, #505, #303); /* Opera 11.10+ */
+    background-image:         linear-gradient(top, #505, #303);
+}
+.ui-btn-up-f a.ui-link-inherit {
+    color:                  #f0f;
+}
+.ui-btn-hover-f {
+    border: 1px solid       #000;
+    background:             #440044;
+    font-weight: bold;
+    color:                  #f0f;
+    text-shadow: 0 -1px 1px #000;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#606), to(#404)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, #606, #404); /* Chrome 10+, Saf5.1+ */
+    background-image:    -moz-linear-gradient(top, #606, #404); /* FF3.6 */
+    background-image:     -ms-linear-gradient(top, #606, #404); /* IE10 */
+    background-image:      -o-linear-gradient(top, #606, #404); /* Opera 11.10+ */
+    background-image:         linear-gradient(top, #606, #404);
+}
+.ui-btn-hover-f a.ui-link-inherit {
+    color:                  #f0f;
+}
+.ui-btn-down-f {
+    border: 1px solid       #000;
+    background:             #3d003d;
+    font-weight: bold;
+    color:                  #f0f;
+    text-shadow: 0 -1px 1px #000;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#303), to(#5a005a)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, #303, #5a05a); /* Chrome 10+, Saf5.1+ */
+    background-image:    -moz-linear-gradient(top, #303, #5a005a); /* FF3.6 */
+    background-image:     -ms-linear-gradient(top, #303, #5a005a); /* IE10 */
+    background-image:      -o-linear-gradient(top, #303, #5a005a); /* Opera 11.10+ */
+    background-image:         linear-gradient(top, #303, #5a005a);
+}
+.ui-btn-down-f a.ui-link-inherit {
+    color:                  #f0f;
+}
+.ui-btn-up-f,
+.ui-btn-hover-f,
+.ui-btn-down-f {
+    font-family: Helvetica, Arial, sans-serif;
+    text-decoration: none;
+}</tt></pre>
+</div></div>
+<div class="paragraph"><p>Once your code is ready, link it to our application by using a <tt>&lt;link&gt;</tt> tag then set the <tt>data-theme="f"</tt> attribute to the elements you want to stylize!</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/customSwatchThemes.png" alt="images/customSwatchThemes.png" />
+</div>
+<div class="title">Figure 62. Well... I'm sure you can do better than me!</div>
+</div>
+<div class="openblock handout">
+<div class="content">
+<hr />
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">If edit a CSS file is too difficult for you, I advice you to use <a href="http://as001.productscape.com/themeroller.cfm">this online tool</a>. It&#8217;s very convenient!</td>
+</tr></table>
+</div>
+</div></div>
+<div class="sect3">
+<h4 id="_in_brief_31">In Brief</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+We can change the theme of elements thanks to these attributes: <tt>data-theme="a"</tt>, <tt>data-theme="b"</tt>, <tt>data-theme="c"</tt>, <tt>data-theme="d"</tt> or <tt>data-theme="e"</tt>.
+</p>
+</li>
+<li>
+<p>
+Customs themes can be made via <strong>CSS</strong>.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_labs_changing_the_application_theme">Labs: Changing The Application Theme</h3>
+<div class="paragraph"><p>For these last labs, start with the file <tt>labs/labs9.htm</tt>: modify it in order to relook the form of our application!</p></div>
+<div class="paragraph"><p>You can stylize as you want by playing with <tt>data-theme</tt> attributes. Below is one of the possible results:</p></div>
+<div class="imageblock">
+<div class="content">
+<img src="images/labs9.png" alt="images/labs9.png" />
+</div>
+<div class="title">Figure 63. A possible result.</div>
+</div>
+<div class="paragraph"><p>The solution can be found in <tt>labs/labs9-solution.htm</tt>.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Version 2.2<br />
+Last updated 2011-09-29 11:40:46 GMT (heure d’été)
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Labs 2</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="http://code.jquery.com/jquery.min.js"></script>
+		<script src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/latest/jquery.mobile.min.css" />
+	</head>
+	<body>
+		<!-- == START MAIN PAGE == -->
+		<div id="mainPage" data-role="page">
+			<div data-role="header" data-position="fixed">
+				<h1>My repertory</h1>
+			</div>
+			<div data-role="content">
+				<p>
+					This is the main page of my application.<br />
+					<a href="#addContactPage" data-transition="slidedown" data-rel="dialog">Click here to add a contact.</a>
+				</p>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<h1>Made with <em>jQuery Mobile</em></h1>
+			</div>
+		</div>
+		<!-- == END MAIN PAGE == -->
+		
+		<!-- == START ADD CONTACT PAGE == -->
+		<div id="addContactPage" data-role="page">
+			<div data-role="header">
+				<h1>My repertory: add a contact</h1>
+			</div>
+			<div data-role="content">
+				<p>
+					We can't add a contact yet!
+				</p>
+			</div>
+		</div>
+		<!-- == END MAIN PAGE == -->
+	</body>
+</html>

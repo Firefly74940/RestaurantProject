@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<!-- == WE'VE JUST ADDED THE DATA-ROLE="LISTVIEW"
+	AND DATA-FILTER="TRUE" ATTRIBUTES TO THE LIST == -->
+	<head>
+		<title>Labs 7</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="http://code.jquery.com/jquery.min.js"></script>
+		<script src="labs7-solution.js"></script>
+		<script src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/latest/jquery.mobile.min.css" />
+	</head>
+	<body>
+		<!-- == START MAIN PAGE == -->
+		<div id="mainPage" data-role="page">
+			<div data-role="header" data-position="fixed">
+				<a href="#addContactPage" class="ui-btn-right"
+					data-transition="slidedown"
+					data-rel="dialog"
+					data-icon="plus"
+					data-iconpos="notext">Add a contact</a>
+				<h1>My repertory</h1>
+			</div>
+			<div data-role="content">
+				<p>
+					Welcome to your repertory! 
+				</p>
+				<ul id="contacts_list" data-role="listview" data-filter="true"></ul>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<h1>Made with <em>jQuery Mobile</em></h1>
+			</div>
+		</div>
+		<!-- == END MAIN PAGE == -->
+		
+		<!-- == START ADD CONTACT PAGE == -->
+		<div id="addContactPage" data-role="page">
+			<div data-role="header">
+				<h1>My repertory: add a contact</h1>
+			</div>
+			<div data-role="content">
+				<form id="addContactForm" action="#mainPage">
+					<div data-role="fieldcontain">
+						<label for="newContactName">Contact name:</label>
+						<input id="newContactName" type="text" />
+						<label for="newContactPhone">Contact phone:</label>
+						<input id="newContactPhone" type="tel" />
+						<div data-role="collapsible" data-collapsed="false">	
+							<h3>Display numbers</h3>
+							<div data-role="controlgroup" data-type="horizontal" style="text-align: center;">
+								<button>1</button>
+								<button>2</button>
+								<button>3</button>
+							</div>
+							<div data-role="controlgroup" data-type="horizontal" style="text-align: center;">
+								<button>4</button>
+								<button>5</button>
+								<button>6</button>
+							</div>
+							<div data-role="controlgroup" data-type="horizontal" style="text-align: center;">
+								<button>7</button>
+								<button>8</button>
+								<button>9</button>
+							</div>
+							<div data-role="controlgroup" data-type="horizontal" style="text-align: center;">
+								<button>+</button>
+								<button>0</button>
+								<button data-icon="back" data-iconpos="right">&nbsp;</span></button>
+							</div>
+						</div>
+						<input type="submit" value="Valid" />
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- == END MAIN PAGE == -->
+	</body>
+</html>
