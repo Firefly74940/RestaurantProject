@@ -1,13 +1,10 @@
-var Modules=new Array();
+var Modules={};
 var parseCookie , Session;
-Modules.push({
-    name :"login",
-    md:''
-});
-Modules.push({
-    name :"cook",
-    md:''
-});
+Modules.cook=false;
+Modules.login=false;
+Modules.DB=false;
+
+
 function Init(Params) {
     Params.Modules=Modules;
     parseCookie = Params.parseCookie;
@@ -18,15 +15,32 @@ function Init(Params) {
     SessionManagerInit(Params);
     app.listen(8080);
     
-    //modules requier
-    
-    for (var i = 0; i < Modules.length; i++)
-    {
-        var module = require("./Modules/"+Modules[i].name);
-        module.init(Params);
-        Modules[i].md= module;
-    }
-
+    //modules requiere
+    var ModsLoaded =false;
+	while(!ModsLoaded)
+	{
+		ModsLoaded=true;
+		for (var i in Modules)
+		{
+			if(Modules[i])
+				continue;
+			var module = require("./Modules/"+i);
+			if(!CheckDependencies(module.Dependences))
+				{
+					ModsLoaded =false;
+					console.log("Module"+ i + "Fail to load dependences");
+					continue;
+				}
+			if(module.init(Params))//Error durring loading
+				Modules[i]= module;
+			else
+			{
+				ModsLoaded =false;
+				console.log("Module"+ i + "Fail to load");
+			}
+		}
+	}
+	
     app.get('/', function (req, res) {
        
 		res.render('index', {
@@ -41,8 +55,28 @@ function Init(Params) {
     console.log("Server has started.");
  
 }
-function MongoInit()
-{}
+
+function CheckDependencies(dependences)
+{
+	var DepLoaded =true;
+	if(dependences==undefined)
+	{
+		dependences=[];
+		return true;
+	}
+	for(var i in dependences)
+   {
+	if(!Modules[dependences[i]])
+	{
+		DepLoaded=false;
+		console.log(Modules[dependences[i]]+ " ( "+i+" ) "+ " ( "+Modules[i]+" ) Not Loaded" + dependences);
+		break;
+	}
+   }
+   return DepLoaded;
+	
+}
+
 function SessionManagerInit(Params)
 {
     var app = Params.app,

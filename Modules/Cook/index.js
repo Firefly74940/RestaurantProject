@@ -15,6 +15,7 @@ function Init(Params)
    Product= mongoose.model('Product');
 	app.get('/Tables', renderTables);
     console.log("Product Module loaded");
+	return true;
 }
 	
 	
@@ -29,12 +30,6 @@ function renderTables (req, res) {
   });
 
 }
-
-
-
-
-
-
 
 function SocketInit(socket)
 {
@@ -82,10 +77,6 @@ function SocketInit(socket)
     console.log("Login socket Module initialized");
 }
 
-function CheckDependencies(Params)
-{
-   
-}
 
 function hashPwd(user)
 {

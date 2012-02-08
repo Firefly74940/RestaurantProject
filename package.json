@@ -10,5 +10,6 @@
 	, "connect": "1.8.5"
     , "mongoose": "2.5.0"
     , "stylus": "*"
+	,"plates":">=0.4.3"
   }
 }

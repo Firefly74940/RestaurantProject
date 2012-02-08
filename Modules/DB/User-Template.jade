@@ -1,0 +1,20 @@
+************************  User-Create-Template  ************************
+
+form(method='post',action='/User/Create', onSubmit='return Api.SubmitForm(this);') 
+	input(type='hidden', name='_method', value='put') 
+	input(type='text', name='User[name]')
+	input(type='text', name='User[email]')
+	input(type='text', name='User[password]')
+	input(type='submit', value='Submit')
+
+
+
+************************  User-Update-Template  ************************
+
+form(method='post',action='/User/Update', onSubmit='return Api.SubmitForm(this);') 
+	input(type='hidden', name='_method', value='put') 
+	input(type='hidden', name='User[_id]', value='#{User._id}') 
+	input(type='text', name='User[name]', value='#{User.name}')
+	input(type='text', name='User[email]', value='#{User.email}')
+	input(type='text', name='User[password]', value='#{User.password}')
+	input(type='submit', value='Submit')

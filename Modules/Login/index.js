@@ -1,15 +1,14 @@
 
-var mongoose
-, Schema,User ;
+var Dependences=[ "DB" ];
+var DB;
 
 var crypto = require('crypto');
 function Init(Params)
 {
-    mongoose=Params.mongoose;
-    mongoose.connect('mongodb://localhost/my_database');
-    Schema = mongoose.Schema;
+   var mongoose=Params.mongoose;
+   var Schema = mongoose.Schema;
    var app = Params.app;
-
+	DB=Params.Modules.DB;
     User = new Schema({
         name    : {
             type: String, 
@@ -29,23 +28,31 @@ function Init(Params)
             type: String, 
             required: true
         }
-    });
+    },{strict : true});
     
     User.pre('save', function(next, done){
         hashPwd(this);
         next();
     });
+	DB.Schemas.User=User;
     User = mongoose.model('User', User);
+//	var  schem = User.model.schema;
 	
-	
-	
+	Params.Modules.DB.Add('User',{name: 'Firefly',email:'mail', password : 'pwd'},function (err) {
+            if (err)
+            {
+               
+                return;
+            }
+           
+
+        });
 	app.get('/Password/:type', renderPassword);
 	
 	
 	
-	
-	
     console.log("Login Module loaded");
+	return true;
 }
 function renderPassword (req, res) {
        
@@ -131,11 +138,6 @@ function SocketInit(socket)
     console.log("Login socket Module initialized");
 }
 
-function CheckDependencies(Params)
-{
-   
-}
-
 function hashPwd(user)
 {
     var shasum = crypto.createHash('sha1');
@@ -153,6 +155,7 @@ function Error(socket,msg)
 
 exports.init = Init;
 exports.SocketInit=SocketInit;
+exports.Dependences=Dependences;
 
 
 function findByLoginMdp(User, callback) {
